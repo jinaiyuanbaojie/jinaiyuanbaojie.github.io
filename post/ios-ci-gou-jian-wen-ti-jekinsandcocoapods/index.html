@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello HTTPS! | 乱弹软件</title>
+<title>iOS CI构建问题：Jekins&amp;CocoaPods | 乱弹软件</title>
 <link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925725862">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -78,16 +78,12 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Hello HTTPS!
+              iOS CI构建问题：Jekins&amp;CocoaPods
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2018-05-17 ·
+                · 2019-06-08 ·
               </time>
-              
-                <a href="https://jinaiyuanbaojie.github.io//tag/y5J2snZ3m" class="post-tag">
-                  # Android
-                </a>
               
                 <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
                   # iOS
@@ -96,39 +92,19 @@
             </div>
             
             <div class="post-content">
-              <h1 id="https">HTTPS</h1>
-<h2 id="优点">优点</h2>
-<ul>
-<li>防止劫持</li>
-<li>防篡改</li>
-<li>防监听</li>
-</ul>
-<h2 id="缺点">缺点</h2>
-<ul>
-<li>通信效率降低</li>
-<li>费用贵</li>
-<li>需要维护证书</li>
-</ul>
-<h2 id="简单原理">简单原理</h2>
-<ul>
-<li>CA：证书颁发机构。可以认为是权威机构，服务器持有权威机构颁发的SSL证书，才是可以被信任的证书。</li>
-<li>使用到的算法：对称加密，非对称加密，哈希算法</li>
-<li>通信（握手）流程：</li>
-</ul>
-<ol>
-<li>客户端发送随机数N1</li>
-<li>服务器收到N1，发送公钥和随机数N2</li>
-<li>客户端解析公钥：检查公钥是否被篡改(哈希校验);检查服务器发送的SSL证书是否在CA（浏览器或者操作系统会内置CA）列表中。</li>
-<li>客户端发送随机数N3和使用公钥加密的对称秘钥给服务器</li>
-<li>服务器使用只有自己拥有的私钥解密，得到对称秘钥</li>
-<li>双方使用对称秘钥开始通信</li>
-</ol>
-<ul>
-<li>HTTPS：HTTP + SSL</li>
-<li>SSL：Secure Scoket Layer</li>
-</ul>
-<h2 id="科普链接">科普链接</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/27395037">点我</a></p>
+              <h2 id="问题">问题：</h2>
+<p>今天配合搭建新工程的CI构建环境。
+构建脚本执行到<code>xcodebuild clean</code>时，<code>jekins</code>卡住日志一直loading卡住。
+构建脚本与之前工程的完全一致。
+旧工程可以正常构建。</p>
+<h2 id="原因">原因：</h2>
+<p>新工程使用了<code>CocoaPods</code>管理第三方代码。</p>
+<h2 id="解决方法">解决方法：</h2>
+<p>构建脚本需要额外添加指令，打开一下工程：</p>
+<blockquote>
+<p>open <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>P</mi><mi>a</mi><mi>t</mi><mi>h</mi><mi mathvariant="normal">/</mi></mrow><annotation encoding="application/x-tex">projectPath/</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mord">/</span></span></span></span>projectname.xcworkspace</p>
+</blockquote>
+<p>打开工程后，会自动生成一些额外cocoapods相关的文件，问题解决。</p>
 
             </div>
           </article>
@@ -137,9 +113,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://jinaiyuanbaojie.github.io//post/xcconfig">
+            <a href="https://jinaiyuanbaojie.github.io//post/mynshipster">
               <h3 class="post-title">
-                XCConfig
+                MyNSHipster
               </h3>
             </a>
           </div>
