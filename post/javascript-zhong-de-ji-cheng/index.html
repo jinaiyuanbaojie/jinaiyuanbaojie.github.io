@@ -1,22 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://jinaiyuanbaojie.github.io/</id>
-    <title>乱弹软件</title>
-    <updated>2019-06-07T16:21:14.663Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
-    <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
-    <subtitle>小舟从此逝，江海寄余生！</subtitle>
-    <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
-    <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, 乱弹软件</rights>
-    <entry>
-        <title type="html"><![CDATA[JavaScript中的继承]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/javascript-zhong-de-ji-cheng</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/javascript-zhong-de-ji-cheng">
-        </link>
-        <updated>2019-06-07T16:16:16.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="开始之前">开始之前</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JavaScript中的继承 | 乱弹软件</title>
+<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559924471191">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://jinaiyuanbaojie.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://jinaiyuanbaojie.github.io/">
+  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1559924471191" alt="">
+  </a>
+  <h1 class="site-title">
+    乱弹软件
+  </h1>
+  <p class="site-description">
+    小舟从此逝，江海寄余生！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://jinaiyuanbaojie.github.io/post/blog/" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/jinaiyuanbaojie" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              JavaScript中的继承
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-06-08 ·
+              </time>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/GgbOYYbTH" class="post-tag">
+                  # JS
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h2 id="开始之前">开始之前</h2>
 <ul>
 <li><code>JavaScript</code>使用场景
 <ul>
@@ -244,45 +320,34 @@ var Derived = function (_Base) {
   return Derived;
 }(Base);
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[XCConfig]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/xcconfig</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/xcconfig">
-        </link>
-        <updated>2018-05-16T16:13:18.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="xcconfig">XCConfig</h1>
-<p><code>xcconfig</code>文件是Xcode的工程构建配置文件，相当于把Project-&gt;Build Settings中的各种选项<strong>文本化</strong>。<br>
-你可以选中Build Settings中任何配置项，<code>cmd+c</code>，然后在<code>xcconfig</code>文件中<code>cmd+v</code>后就可以看到效果。</p>
-<h2 id="objective-c时代">Objective-C时代</h2>
-<p>因为Objective-C兼容C，所以也理所应当支持宏。<br>
-在xcconfig文件中预定义一些宏，可以让代码中少很多<code>if{...}else{...}</code>的语句。类似于开关。</p>
-<h2 id="swift时代">Swift时代</h2>
-<p>Swift本身不再支持宏，所以OC时代的便利性下降。当然不支持宏是正确的。可是如何在Swift中享受OC时代的便利呢？</p>
-<ol>
-<li>桥接OC</li>
-<li>只能设置Swift支持的Flag （<strong>Other Swift Flags</strong>）</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Blog]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/blog</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/blog">
-        </link>
-        <updated>2018-01-12T16:08:39.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="blog">Blog</h1>
-<p>记录些有趣的小问题
-工作和生活中的小事，在GitHub上吐吐槽。茫茫页面，你找不到我的！</p>
-<h2 id="一首喜欢的小词">一首喜欢的小词</h2>
-<p><strong>临江仙 夜饮东坡醒复醉</strong> 苏轼 宋</p>
-<p>夜饮东坡醒复醉，归来仿佛三更。家童鼻息已雷鸣。敲门都不应，倚杖听江声。</p>
-<p>长恨此身非我有，何时忘却营营。夜阑风静縠纹平。小舟从此逝，江海寄余生。</p>
-<h2 id="一首喜欢的古诗">一首喜欢的古诗</h2>
-<p><strong>问刘十九</strong> 白居易 唐</p>
-<p>绿蚁新醅酒，红泥小火炉。</p>
-<p>晚来天欲雪，能饮一杯无。</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://jinaiyuanbaojie.github.io//post/xcconfig">
+              <h3 class="post-title">
+                XCConfig
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://jinaiyuanbaojie.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
