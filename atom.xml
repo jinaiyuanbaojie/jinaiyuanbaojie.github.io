@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-06-07T16:23:51.625Z</updated>
+    <updated>2019-06-07T16:35:15.690Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
@@ -10,6 +10,146 @@
     <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
     <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 乱弹软件</rights>
+    <entry>
+        <title type="html"><![CDATA[MyNSHipster]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/mynshipster</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/mynshipster">
+        </link>
+        <updated>2018-09-27T16:34:05.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="any-anyobject-anyclass">Any AnyObject AnyClass</h1>
+<blockquote>
+<p>三者的含义，顾名思义</p>
+</blockquote>
+<ul>
+<li>Any: 任何变量, struct enum function</li>
+<li>AnyObject: 任何class的实例，与ObjC中的id等价</li>
+<li>AnyClass：任何对象的类对象,MetaType元类型。与ObjC中[NSObject class]类似。UIView.self &lt;==&gt; [UIView class]<br>
+<a href="http://swifter.tips/self-anyclass/">blog</a></li>
+</ul>
+<h1 id="nil-nil-null-nsnull">nil Nil NULL NSNull</h1>
+<ul>
+<li>nil 指向不存在对象的指针</li>
+<li>Nil 指向不存在类的指针 Class clazz = Nil</li>
+<li>NULL 兼容C</li>
+<li>NSNull 对象，表示“空”</li>
+</ul>
+<blockquote>
+<p><a href="https://nshipster.cn/nil/">nshipster</a></p>
+</blockquote>
+<h1 id="id-nsobject-idnsobject">id NSObject <code>id&lt;NSObject&gt;</code></h1>
+<ul>
+<li>id: 任何对象，Objc中NSObject并非所有类的父类，比如NSProxy</li>
+<li>NSObject: 父类为NSObject的对象</li>
+<li><code>id&lt;NSObject&gt;</code>: 任何实现了NSObject协议的类的对象</li>
+</ul>
+<blockquote>
+<p>ObjC中既有名为NSObject的protocol也有名为NSObject的class</p>
+</blockquote>
+<h1 id="id-instancetype">id instancetype</h1>
+<blockquote>
+<p>(id) init vs (instancetype) init
+instancetype返回当前类型，辅助编译器提供更多信息</p>
+</blockquote>
+<h1 id="lifecycle-of-uiviewcontroller">Lifecycle of UIViewController</h1>
+<pre><code class="language-swift">initWithNibName:bundle:
+loadView
+viewDidLoad
+viewWillAppear
+loadViewIfNeeded
+viewWillLayoutSubviews
+viewDidLayoutSubviews
+viewDidAppear
+viewWillDisappear
+viewDidDisappear
+didReceiveMemoryWarning
+dealloc
+</code></pre>
+<blockquote>
+<p>initWithNibName:bundle: 初始化方法两个参数都可以为空，系统会安装某种规则自动查找<br>
+[UIViewController init]方法也会调用initWithNibName:bundle:<br>
+调用initWithNibName:bundle:, 就不能override  loadView方法，否则会nib会被覆盖，导致失效。</p>
+</blockquote>
+<h1 id="java调用爷爷类方法">Java调用爷爷类方法</h1>
+<ul>
+<li>super.super 不存在的</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/586363/why-is-super-super-method-not-allowed-in-java">stackoverflow</a></p>
+</blockquote>
+<h1 id="c-调用爷爷类方法">C++ 调用爷爷类方法</h1>
+<blockquote>
+<p>Grandfather::method()</p>
+</blockquote>
+<h1 id="nib-xib">nib xib</h1>
+<ul>
+<li>xib是nib的进化版本 nib-&gt;nib2.0-&gt;nib3.0-&gt;xib</li>
+<li>xib是xml的文本文件，nib是二进制文件</li>
+<li>xib也会被编译器编译，会被编译成nib文件</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/3726400/what-is-the-difference-between-nib-and-xib-interface-builder-file-formats">stackoverflow</a><br>
+<a href="https://onevcat.com/2013/12/code-vs-xib-vs-storyboard/">xib vs storyboard vs code</a></p>
+</blockquote>
+<h1 id="objc-super-vs-self">ObjC super VS self</h1>
+<p><code>[super method]</code>和<code>[self method]</code>对象的接受者都是<code>self</code>.
+只是<code>super</code>告诉runtime从<code>self</code>的基类开始查找方法</p>
+<h1 id="objc-20-内存布局">ObjC 2.0 内存布局</h1>
+<ul>
+<li>1.0 ABI不兼容</li>
+<li>2.0 系统库添加字段不影响业务代码。ABI兼容</li>
+<li>大部分blog讲解的都是1.0的内存布局</li>
+</ul>
+<p><a href="http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html">blog</a></p>
+<h1 id="objc-category为何不能添加属性">ObjC category为何不能添加属性</h1>
+<p>此处<strong>属性</strong>应该是<strong>成员</strong>。<br>
+@property = ivar + getter + setter</p>
+<ul>
+<li>property 可以添加，通过编译。没意义，因为只有getter和setter，没有ivar</li>
+<li>ivar 不可以添加：原因对象在内存中的布局必须是固定大小的。否则运行时会出现问题：已经分配的对象与新分配的对象大小不一样，调用方法可能会导致crash</li>
+</ul>
+<p>solution: 添加关联对象<br>
+<a href="http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html">blog</a><br>
+<a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime">Apple</a></p>
+<h1 id="苹果开源代码">苹果开源代码</h1>
+<p>下载链接 http://opensource.apple.com/</p>
+<ul>
+<li>runtime</li>
+<li>GCD</li>
+<li>CoreFoundation</li>
+<li>etc...</li>
+</ul>
+<h1 id="modulemodulemap">module.modulemap</h1>
+<p>http://andelf.github.io/blog/2014/06/19/modules-for-swift/</p>
+<h1 id="codable原理">Codable原理</h1>
+<p><a href="https://techblog.toutiao.com/2017/07/05/session212/">blog</a></p>
+<h1 id="assetscar">Assets.car</h1>
+<blockquote>
+<p>编译后的ipa安装包，内部含有此文件。此文件是<code>image.xcassets</code>下图片资源的集合。</p>
+</blockquote>
+<h1 id="mainbundle-subbundle">main.bundle &amp; sub.bundle</h1>
+<blockquote>
+<p>工程的所有资源文件：图片，文件，xib等等都会存放到手机的bundle路径下。<br>
+根目录就是main.bundle, main.bundle下存在各种sub.bundle.例如AliSDK.bundle</p>
+</blockquote>
+<h1 id="tips">TIPS</h1>
+<ul>
+<li>.tt文件 生成代码的模版文件 T4(Text Template Transformation Toolkit)</li>
+<li><code>OSAtomicCompareAndSwap32Barrier(_oldValue _newValue _theValue)-&gt;Bool</code> 如果_oldValue == _theValue，那么设置_newValue并返回true。保证操作的原子性。</li>
+<li><code>extension NSObject: ReactiveCompatible { }</code></li>
+<li><code>@inline(never)</code> 永远不要把函数编译成内联形式</li>
+<li><code>@inline(__always)</code> 与上面相反</li>
+<li><strong>ContiguousArray</strong> 不和OC桥接的话，比使用Array更加有效率</li>
+<li><strong>precondition(_ condition @escape)</strong></li>
+<li><code>swift(&gt;=4.0)</code> 内置宏判断swift版本</li>
+<li><strong>attribute</strong>((constructor)) main函数前执行某方法</li>
+<li><code>.scpt</code>AppleScript是用在MacOSX上的脚本语言</li>
+<li><code>insert_dylib</code>可以给App注入动态库。</li>
+<li>[在OC中使用 class 属性修饰符] 就是给类添加静态成员，但是不会自动合成getter setter，这么做是为了与Swift桥接。（早他妈该有这个东西了）</li>
+<li>NSURLCache</li>
+<li>@discardableResult 忽略不使用方法返回值的警告</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[温水煮青蛙]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/wen-shui-zhu-qing-wa</id>
@@ -32,6 +172,150 @@
 <li>测试账号不完备</li>
 <li>无预上线流程</li>
 <li>权限管理混乱</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Android HotFix]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/android-hotfix</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/android-hotfix">
+        </link>
+        <updated>2018-07-12T16:24:30.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="热修复流派">热修复流派</h1>
+<ul>
+<li>Native: 利用JNI改变调用方法的入口</li>
+<li>Java：多dex打包，补丁dex插入前面
+<ul>
+<li>Qzone: 差量dex</li>
+<li>Tinker: 全量dex(dexdiff算法本地合成)</li>
+</ul>
+</li>
+</ul>
+<h1 id="classloader">ClassLoader</h1>
+<ul>
+<li>加载Java代码到虚拟机</li>
+<li>双亲委派模式找出Java类：先托管给父类查找，如果父类查找不到再自己查找，如此递归。</li>
+<li>Android平台下提供特定的<code>DexClassLoader</code>,会按顺序在dex数组中查找类，如果找到会忽略后面的相同类。</li>
+</ul>
+<h1 id="android编译方式">Android编译方式</h1>
+<ul>
+<li>JIT 及时编译：安装快，运行时速度会变慢</li>
+<li>AOT Ahead of time：安装包变大，安装时间变长，运行速度变快</li>
+<li>混合编译：上述方式的综合</li>
+</ul>
+<h1 id="android虚拟机发展">Android虚拟机发展</h1>
+<ul>
+<li>Dalvik：～Android4.0</li>
+<li>ART： Android5.0～</li>
+<li>ART beta: Android4.0</li>
+<li>ART: Android Run Time代替Dalvik的新虚拟机</li>
+</ul>
+<h1 id="编译方式与版本对应关系">编译方式与版本对应关系</h1>
+<ul>
+<li>JIT：Dalvik虚拟机 ～Android4.0</li>
+<li>AOT：ART虚拟机 Android5.0～Android6.0</li>
+<li>混合编译：Android7.0～</li>
+</ul>
+<h1 id="插桩class_ispreverifed">插桩CLASS_ISPREVERIFED</h1>
+<ul>
+<li>优化dex -&gt; odex,为了提升加载速度</li>
+<li>满足条件的类会被打桩<code>CLASS_ISPREVERIFED</code>标记，不再引入其他dex文件的代码</li>
+<li>被打桩的类引用热修复的类时会报错</li>
+<li>打桩是为了优化Java代码的装载速度，当A类被标记，引用的B类不在原理的dex文件而在补丁dex文件中时，会报错</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gradle!]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/hello-gradle</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/hello-gradle">
+        </link>
+        <updated>2018-07-04T16:28:44.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="gradle">Gradle</h1>
+<ul>
+<li>Java的打包工具：Server或Android都可以</li>
+<li>基于Groovy语言，Groovy语言运行在JVM上，会编译为class文件，所以可以与Java兼容。</li>
+<li>可以管理Android各模块依赖关系</li>
+</ul>
+<h1 id="android工程结构">Android工程结构</h1>
+<ul>
+<li>setting.gradle 配置那些module参与编译构建</li>
+</ul>
+<pre><code>include ':MyApp', //main module
+        ':subMoudle',
+        ':Base:Utils1', //文件夹Base下的module Utils1
+        ':Base:Utils2'
+</code></pre>
+<ul>
+<li>顶层build.gradle 各个module共享</li>
+</ul>
+<pre><code>//构建脚本（groovy语言）依赖的第三放插件和插件的代码仓库
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+
+//Android项目（Java语言）依赖的第三放插件和插件的代码仓库
+allprojects {
+    repositories {
+        google()
+    }
+}
+</code></pre>
+<ul>
+<li>app下build.gradle 具体模块的构建指令</li>
+</ul>
+<pre><code>//编译MainModule所依赖的子模块以及jar包的检索路径
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':subModule1')
+    api project(':subModule2')
+}
+</code></pre>
+<h1 id="自定义groovy插件">自定义groovy插件</h1>
+<ul>
+<li>
+<p>直接在build.gradle中写逻辑：快速验证功能，复用性差</p>
+</li>
+<li>
+<p>作为groovy lib被build.gradle引用</p>
+<ul>
+<li>新建Android Module/Android Library</li>
+<li>除build.gradle文件外的其余文件全都删除</li>
+<li>新建文件夹<code>src/main/groovy</code>目录</li>
+<li>配置<code>build.gradle</code></li>
+</ul>
+<pre><code>apply plugin: 'groovy' //必选
+apply plugin: 'maven'
+dependencies {
+   //依赖的jar包或者gradle插件
+}
+</code></pre>
+<ul>
+<li>新建resources/META-INF/gradle-plugins/<code>plugin.properties</code></li>
+<li>在文件中配置自定义插件的入口</li>
+</ul>
+<p><code>implementation-class=mypackage.MyPlugin</code></p>
+<ul>
+<li>实现<code>MyPlugin</code></li>
+</ul>
+<pre><code>class MyPlugin implements Plugin&lt;Project&gt; {
+    void apply(Project project) {
+        //自定义Task也可以引用其他groovy类的方法
+        project.task('myTask') &lt;&lt; {
+            println &quot;Hello world&quot;
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>命令行或者IDE右侧Task列表执行：gradlew myTask</li>
+</ul>
+</li>
 </ul>
 ]]></content>
     </entry>
@@ -272,6 +556,47 @@ var Derived = function (_Base) {
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Hello HTTPS!]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/hello-https</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/hello-https">
+        </link>
+        <updated>2018-05-16T16:30:51.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="https">HTTPS</h1>
+<h2 id="优点">优点</h2>
+<ul>
+<li>防止劫持</li>
+<li>防篡改</li>
+<li>防监听</li>
+</ul>
+<h2 id="缺点">缺点</h2>
+<ul>
+<li>通信效率降低</li>
+<li>费用贵</li>
+<li>需要维护证书</li>
+</ul>
+<h2 id="简单原理">简单原理</h2>
+<ul>
+<li>CA：证书颁发机构。可以认为是权威机构，服务器持有权威机构颁发的SSL证书，才是可以被信任的证书。</li>
+<li>使用到的算法：对称加密，非对称加密，哈希算法</li>
+<li>通信（握手）流程：</li>
+</ul>
+<ol>
+<li>客户端发送随机数N1</li>
+<li>服务器收到N1，发送公钥和随机数N2</li>
+<li>客户端解析公钥：检查公钥是否被篡改(哈希校验);检查服务器发送的SSL证书是否在CA（浏览器或者操作系统会内置CA）列表中。</li>
+<li>客户端发送随机数N3和使用公钥加密的对称秘钥给服务器</li>
+<li>服务器使用只有自己拥有的私钥解密，得到对称秘钥</li>
+<li>双方使用对称秘钥开始通信</li>
+</ol>
+<ul>
+<li>HTTPS：HTTP + SSL</li>
+<li>SSL：Secure Scoket Layer</li>
+</ul>
+<h2 id="科普链接">科普链接</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/27395037">点我</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[XCConfig]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/xcconfig</id>
         <link href="https://jinaiyuanbaojie.github.io//post/xcconfig">
@@ -292,6 +617,23 @@ var Derived = function (_Base) {
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[IT俗话]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/it-su-hua</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/it-su-hua">
+        </link>
+        <updated>2018-03-29T16:32:32.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="一将无能累死三军-深以为然-无谓加班">一将无能累死三军。深以为然。无谓加班。</h3>
+<h3 id="framework是调用你的代码library是你调用的代码">Framework是调用你的代码，Library是你调用的代码。</h3>
+<h3 id="实现复杂的需求是一种境界用简单的方式实现又是一种境界将复杂的需求化解为简单的需求是更高的境界">实现复杂的需求是一种境界，用简单的方式实现又是一种境界，将复杂的需求化解为简单的需求是更高的境界。</h3>
+<h3 id="我的偏见-大龄程序员的注意事项">我的偏见-大龄程序员的注意事项：</h3>
+<p>1.固步自封，不更新技术栈。</p>
+<p>2.对于各种框架或第三方库，浅尝辄止。不去深入了解源码。</p>
+<p>3.多年的经验并未形成软件工程中的世界观、方法论。</p>
+<h3 id="也许将来我也会这样对世界已经无爱失去好奇心">也许将来我也会这样：对世界已经无爱，失去好奇心。</h3>
+<h3 id="设计上的完美不是没有东西可以再加而是没有东西可以再减">“设计上的完美不是没有东西可以再加，而是没有东西可以再减。”</h3>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Blog]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/blog</id>
         <link href="https://jinaiyuanbaojie.github.io//post/blog">
@@ -308,6 +650,25 @@ var Derived = function (_Base) {
 <p><strong>问刘十九</strong> 白居易 唐</p>
 <p>绿蚁新醅酒，红泥小火炉。</p>
 <p>晚来天欲雪，能饮一杯无。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一个二逼的小Bug]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/yi-ge-er-bi-de-xiao-bug</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/yi-ge-er-bi-de-xiao-bug">
+        </link>
+        <updated>2018-01-06T16:26:05.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="bug描述">Bug描述</h3>
+<p>webView加载bundle下的html,相对于mainBundle的路径如下：</p>
+<blockquote>
+<p>H5Project/module/Homepage/views/test.html</p>
+</blockquote>
+<p>使用模拟器可以正常加载显示网页，<strong>使用真机找不到网页闪退</strong>。</p>
+<h3 id="原因">原因</h3>
+<p>路径书写错误<code>Homepage</code>应该改为<code>HomePage</code>。字母P大写。</p>
+<h3 id="分析">分析</h3>
+<p>模拟器的文件系统与Mac一致，文件路径不区分大小写，所以可以找到网页。<br>
+真机使用的iOS文件系统，文件路径区分大小写。所以找不到网页。</p>
 ]]></content>
     </entry>
 </feed>

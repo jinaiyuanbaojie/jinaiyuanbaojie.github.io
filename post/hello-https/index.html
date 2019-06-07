@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>温水煮青蛙 | 乱弹软件</title>
+<title>Hello HTTPS! | 乱弹软件</title>
 <link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925312520">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -78,37 +78,57 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              温水煮青蛙
+              Hello HTTPS!
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2018-08-16 ·
+                · 2018-05-17 ·
               </time>
               
-                <a href="https://jinaiyuanbaojie.github.io//tag/-1hMoxnEa" class="post-tag">
-                  # 随笔
+                <a href="https://jinaiyuanbaojie.github.io//tag/y5J2snZ3m" class="post-tag">
+                  # Android
+                </a>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
+                  # iOS
                 </a>
               
             </div>
             
             <div class="post-content">
-              <h1 id="我自己要注意的事项">我自己要注意的事项</h1>
+              <h1 id="https">HTTPS</h1>
+<h2 id="优点">优点</h2>
 <ul>
-<li>不要被周围的慢节奏拖垮</li>
-<li>不要慢慢适应不合理或者错误的做事方法</li>
-<li>改变或推动不了周围环境，就做好自己</li>
-<li>持续学习，从优化项目入手</li>
+<li>防止劫持</li>
+<li>防篡改</li>
+<li>防监听</li>
 </ul>
-<h1 id="hcc现在的问题">HCC现在的问题</h1>
+<h2 id="缺点">缺点</h2>
 <ul>
-<li>无CI系统</li>
-<li>服务端人员不够积极主动</li>
-<li>业务部门随时骚扰</li>
-<li>需求会议太多</li>
-<li>测试账号不完备</li>
-<li>无预上线流程</li>
-<li>权限管理混乱</li>
+<li>通信效率降低</li>
+<li>费用贵</li>
+<li>需要维护证书</li>
 </ul>
+<h2 id="简单原理">简单原理</h2>
+<ul>
+<li>CA：证书颁发机构。可以认为是权威机构，服务器持有权威机构颁发的SSL证书，才是可以被信任的证书。</li>
+<li>使用到的算法：对称加密，非对称加密，哈希算法</li>
+<li>通信（握手）流程：</li>
+</ul>
+<ol>
+<li>客户端发送随机数N1</li>
+<li>服务器收到N1，发送公钥和随机数N2</li>
+<li>客户端解析公钥：检查公钥是否被篡改(哈希校验);检查服务器发送的SSL证书是否在CA（浏览器或者操作系统会内置CA）列表中。</li>
+<li>客户端发送随机数N3和使用公钥加密的对称秘钥给服务器</li>
+<li>服务器使用只有自己拥有的私钥解密，得到对称秘钥</li>
+<li>双方使用对称秘钥开始通信</li>
+</ol>
+<ul>
+<li>HTTPS：HTTP + SSL</li>
+<li>SSL：Secure Scoket Layer</li>
+</ul>
+<h2 id="科普链接">科普链接</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/27395037">点我</a></p>
 
             </div>
           </article>
@@ -117,9 +137,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://jinaiyuanbaojie.github.io//post/android-hotfix">
+            <a href="https://jinaiyuanbaojie.github.io//post/xcconfig">
               <h3 class="post-title">
-                Android HotFix
+                XCConfig
               </h3>
             </a>
           </div>

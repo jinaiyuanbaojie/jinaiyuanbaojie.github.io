@@ -1,9 +1,9 @@
 <html>
   <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>乱弹软件</title>
+<title>一个二逼的小Bug | 乱弹软件</title>
 <link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925312520">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,19 +75,42 @@
 </div>
 
 
-        <div class="tags-container">
-          
-            <a class="tag" href="https://jinaiyuanbaojie.github.io//tag/Ued7Uq5DU">Swift</a>
-          
-            <a class="tag" href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff">iOS</a>
-          
-            <a class="tag" href="https://jinaiyuanbaojie.github.io//tag/-1hMoxnEa">随笔</a>
-          
-            <a class="tag" href="https://jinaiyuanbaojie.github.io//tag/y5J2snZ3m">Android</a>
-          
-            <a class="tag" href="https://jinaiyuanbaojie.github.io//tag/GgbOYYbTH">JS</a>
-          
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              一个二逼的小Bug
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-01-07 ·
+              </time>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
+                  # iOS
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="bug描述">Bug描述</h3>
+<p>webView加载bundle下的html,相对于mainBundle的路径如下：</p>
+<blockquote>
+<p>H5Project/module/Homepage/views/test.html</p>
+</blockquote>
+<p>使用模拟器可以正常加载显示网页，<strong>使用真机找不到网页闪退</strong>。</p>
+<h3 id="原因">原因</h3>
+<p>路径书写错误<code>Homepage</code>应该改为<code>HomePage</code>。字母P大写。</p>
+<h3 id="分析">分析</h3>
+<p>模拟器的文件系统与Mac一致，文件路径不区分大小写，所以可以找到网页。<br>
+真机使用的iOS文件系统，文件路径区分大小写。所以找不到网页。</p>
+
+            </div>
+          </article>
         </div>
+
+        
+
+        
 
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 

@@ -1,0 +1,261 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyNSHipster | 乱弹软件</title>
+<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925312520">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://jinaiyuanbaojie.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://jinaiyuanbaojie.github.io/">
+  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1559925312520" alt="">
+  </a>
+  <h1 class="site-title">
+    乱弹软件
+  </h1>
+  <p class="site-description">
+    小舟从此逝，江海寄余生！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://jinaiyuanbaojie.github.io/post/blog/" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/jinaiyuanbaojie" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              MyNSHipster
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-09-28 ·
+              </time>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/Ued7Uq5DU" class="post-tag">
+                  # Swift
+                </a>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
+                  # iOS
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h1 id="any-anyobject-anyclass">Any AnyObject AnyClass</h1>
+<blockquote>
+<p>三者的含义，顾名思义</p>
+</blockquote>
+<ul>
+<li>Any: 任何变量, struct enum function</li>
+<li>AnyObject: 任何class的实例，与ObjC中的id等价</li>
+<li>AnyClass：任何对象的类对象,MetaType元类型。与ObjC中[NSObject class]类似。UIView.self &lt;==&gt; [UIView class]<br>
+<a href="http://swifter.tips/self-anyclass/">blog</a></li>
+</ul>
+<h1 id="nil-nil-null-nsnull">nil Nil NULL NSNull</h1>
+<ul>
+<li>nil 指向不存在对象的指针</li>
+<li>Nil 指向不存在类的指针 Class clazz = Nil</li>
+<li>NULL 兼容C</li>
+<li>NSNull 对象，表示“空”</li>
+</ul>
+<blockquote>
+<p><a href="https://nshipster.cn/nil/">nshipster</a></p>
+</blockquote>
+<h1 id="id-nsobject-idnsobject">id NSObject <code>id&lt;NSObject&gt;</code></h1>
+<ul>
+<li>id: 任何对象，Objc中NSObject并非所有类的父类，比如NSProxy</li>
+<li>NSObject: 父类为NSObject的对象</li>
+<li><code>id&lt;NSObject&gt;</code>: 任何实现了NSObject协议的类的对象</li>
+</ul>
+<blockquote>
+<p>ObjC中既有名为NSObject的protocol也有名为NSObject的class</p>
+</blockquote>
+<h1 id="id-instancetype">id instancetype</h1>
+<blockquote>
+<p>(id) init vs (instancetype) init
+instancetype返回当前类型，辅助编译器提供更多信息</p>
+</blockquote>
+<h1 id="lifecycle-of-uiviewcontroller">Lifecycle of UIViewController</h1>
+<pre><code class="language-swift">initWithNibName:bundle:
+loadView
+viewDidLoad
+viewWillAppear
+loadViewIfNeeded
+viewWillLayoutSubviews
+viewDidLayoutSubviews
+viewDidAppear
+viewWillDisappear
+viewDidDisappear
+didReceiveMemoryWarning
+dealloc
+</code></pre>
+<blockquote>
+<p>initWithNibName:bundle: 初始化方法两个参数都可以为空，系统会安装某种规则自动查找<br>
+[UIViewController init]方法也会调用initWithNibName:bundle:<br>
+调用initWithNibName:bundle:, 就不能override  loadView方法，否则会nib会被覆盖，导致失效。</p>
+</blockquote>
+<h1 id="java调用爷爷类方法">Java调用爷爷类方法</h1>
+<ul>
+<li>super.super 不存在的</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/586363/why-is-super-super-method-not-allowed-in-java">stackoverflow</a></p>
+</blockquote>
+<h1 id="c-调用爷爷类方法">C++ 调用爷爷类方法</h1>
+<blockquote>
+<p>Grandfather::method()</p>
+</blockquote>
+<h1 id="nib-xib">nib xib</h1>
+<ul>
+<li>xib是nib的进化版本 nib-&gt;nib2.0-&gt;nib3.0-&gt;xib</li>
+<li>xib是xml的文本文件，nib是二进制文件</li>
+<li>xib也会被编译器编译，会被编译成nib文件</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/3726400/what-is-the-difference-between-nib-and-xib-interface-builder-file-formats">stackoverflow</a><br>
+<a href="https://onevcat.com/2013/12/code-vs-xib-vs-storyboard/">xib vs storyboard vs code</a></p>
+</blockquote>
+<h1 id="objc-super-vs-self">ObjC super VS self</h1>
+<p><code>[super method]</code>和<code>[self method]</code>对象的接受者都是<code>self</code>.
+只是<code>super</code>告诉runtime从<code>self</code>的基类开始查找方法</p>
+<h1 id="objc-20-内存布局">ObjC 2.0 内存布局</h1>
+<ul>
+<li>1.0 ABI不兼容</li>
+<li>2.0 系统库添加字段不影响业务代码。ABI兼容</li>
+<li>大部分blog讲解的都是1.0的内存布局</li>
+</ul>
+<p><a href="http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html">blog</a></p>
+<h1 id="objc-category为何不能添加属性">ObjC category为何不能添加属性</h1>
+<p>此处<strong>属性</strong>应该是<strong>成员</strong>。<br>
+@property = ivar + getter + setter</p>
+<ul>
+<li>property 可以添加，通过编译。没意义，因为只有getter和setter，没有ivar</li>
+<li>ivar 不可以添加：原因对象在内存中的布局必须是固定大小的。否则运行时会出现问题：已经分配的对象与新分配的对象大小不一样，调用方法可能会导致crash</li>
+</ul>
+<p>solution: 添加关联对象<br>
+<a href="http://quotation.github.io/objc/2015/05/21/objc-runtime-ivar-access.html">blog</a><br>
+<a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime">Apple</a></p>
+<h1 id="苹果开源代码">苹果开源代码</h1>
+<p>下载链接 http://opensource.apple.com/</p>
+<ul>
+<li>runtime</li>
+<li>GCD</li>
+<li>CoreFoundation</li>
+<li>etc...</li>
+</ul>
+<h1 id="modulemodulemap">module.modulemap</h1>
+<p>http://andelf.github.io/blog/2014/06/19/modules-for-swift/</p>
+<h1 id="codable原理">Codable原理</h1>
+<p><a href="https://techblog.toutiao.com/2017/07/05/session212/">blog</a></p>
+<h1 id="assetscar">Assets.car</h1>
+<blockquote>
+<p>编译后的ipa安装包，内部含有此文件。此文件是<code>image.xcassets</code>下图片资源的集合。</p>
+</blockquote>
+<h1 id="mainbundle-subbundle">main.bundle &amp; sub.bundle</h1>
+<blockquote>
+<p>工程的所有资源文件：图片，文件，xib等等都会存放到手机的bundle路径下。<br>
+根目录就是main.bundle, main.bundle下存在各种sub.bundle.例如AliSDK.bundle</p>
+</blockquote>
+<h1 id="tips">TIPS</h1>
+<ul>
+<li>.tt文件 生成代码的模版文件 T4(Text Template Transformation Toolkit)</li>
+<li><code>OSAtomicCompareAndSwap32Barrier(_oldValue _newValue _theValue)-&gt;Bool</code> 如果_oldValue == _theValue，那么设置_newValue并返回true。保证操作的原子性。</li>
+<li><code>extension NSObject: ReactiveCompatible { }</code></li>
+<li><code>@inline(never)</code> 永远不要把函数编译成内联形式</li>
+<li><code>@inline(__always)</code> 与上面相反</li>
+<li><strong>ContiguousArray</strong> 不和OC桥接的话，比使用Array更加有效率</li>
+<li><strong>precondition(_ condition @escape)</strong></li>
+<li><code>swift(&gt;=4.0)</code> 内置宏判断swift版本</li>
+<li><strong>attribute</strong>((constructor)) main函数前执行某方法</li>
+<li><code>.scpt</code>AppleScript是用在MacOSX上的脚本语言</li>
+<li><code>insert_dylib</code>可以给App注入动态库。</li>
+<li>[在OC中使用 class 属性修饰符] 就是给类添加静态成员，但是不会自动合成getter setter，这么做是为了与Swift桥接。（早他妈该有这个东西了）</li>
+<li>NSURLCache</li>
+<li>@discardableResult 忽略不使用方法返回值的警告</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://jinaiyuanbaojie.github.io//post/wen-shui-zhu-qing-wa">
+              <h3 class="post-title">
+                温水煮青蛙
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://jinaiyuanbaojie.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
