@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>XCConfig | 乱弹软件</title>
+<title>SourceKitten获取语法树 | 乱弹软件</title>
 <link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925553676">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -78,32 +78,55 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              XCConfig
+              SourceKitten获取语法树
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2018-05-17 ·
+                · 2018-09-27 ·
               </time>
-              
-                <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
-                  # iOS
-                </a>
               
             </div>
             
             <div class="post-content">
-              <h1 id="xcconfig">XCConfig</h1>
-<p><code>xcconfig</code>文件是Xcode的工程构建配置文件，相当于把Project-&gt;Build Settings中的各种选项<strong>文本化</strong>。<br>
-你可以选中Build Settings中任何配置项，<code>cmd+c</code>，然后在<code>xcconfig</code>文件中<code>cmd+v</code>后就可以看到效果。</p>
-<h2 id="objective-c时代">Objective-C时代</h2>
-<p>因为Objective-C兼容C，所以也理所应当支持宏。<br>
-在xcconfig文件中预定义一些宏，可以让代码中少很多<code>if{...}else{...}</code>的语句。类似于开关。</p>
-<h2 id="swift时代">Swift时代</h2>
-<p>Swift本身不再支持宏，所以OC时代的便利性下降。当然不支持宏是正确的。可是如何在Swift中享受OC时代的便利呢？</p>
-<ol>
-<li>桥接OC</li>
-<li>只能设置Swift支持的Flag （<strong>Other Swift Flags</strong>）</li>
-</ol>
+              <h1 id="sourcekitten获取语法树">SourceKitten获取语法树</h1>
+<blockquote>
+<p>基于SourceKit的封装</p>
+</blockquote>
+<pre><code class="language-json">input: sourcekitten structure --text &quot;struct A { func b() {} }&quot;
+
+output:
+{
+  &quot;key.diagnostic_stage&quot; : &quot;source.diagnostic.stage.swift.parse&quot;,
+  &quot;key.length&quot; : 24,
+  &quot;key.offset&quot; : 0,
+  &quot;key.substructure&quot; : [
+    {
+      &quot;key.accessibility&quot; : &quot;source.lang.swift.accessibility.internal&quot;,
+      &quot;key.bodylength&quot; : 13,
+      &quot;key.bodyoffset&quot; : 10,
+      &quot;key.kind&quot; : &quot;source.lang.swift.decl.struct&quot;,
+      &quot;key.length&quot; : 24,
+      &quot;key.name&quot; : &quot;A&quot;,
+      &quot;key.namelength&quot; : 1,
+      &quot;key.nameoffset&quot; : 7,
+      &quot;key.offset&quot; : 0,
+      &quot;key.substructure&quot; : [
+        {
+          &quot;key.accessibility&quot; : &quot;source.lang.swift.accessibility.internal&quot;,
+          &quot;key.bodylength&quot; : 0,
+          &quot;key.bodyoffset&quot; : 21,
+          &quot;key.kind&quot; : &quot;source.lang.swift.decl.function.method.instance&quot;,
+          &quot;key.length&quot; : 11,
+          &quot;key.name&quot; : &quot;b()&quot;,
+          &quot;key.namelength&quot; : 3,
+          &quot;key.nameoffset&quot; : 16,
+          &quot;key.offset&quot; : 11
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
 
             </div>
           </article>
@@ -112,9 +135,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://jinaiyuanbaojie.github.io//post/it-su-hua">
+            <a href="https://jinaiyuanbaojie.github.io//post/wen-shui-zhu-qing-wa">
               <h3 class="post-title">
-                IT俗话
+                温水煮青蛙
               </h3>
             </a>
           </div>

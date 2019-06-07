@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-06-07T16:35:15.690Z</updated>
+    <updated>2019-06-07T16:39:15.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
@@ -148,6 +148,53 @@ dealloc
 <li>NSURLCache</li>
 <li>@discardableResult 忽略不使用方法返回值的警告</li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SourceKitten获取语法树]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/sourcekitten-huo-qu-yu-fa-shu</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/sourcekitten-huo-qu-yu-fa-shu">
+        </link>
+        <updated>2018-09-26T16:37:23.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="sourcekitten获取语法树">SourceKitten获取语法树</h1>
+<blockquote>
+<p>基于SourceKit的封装</p>
+</blockquote>
+<pre><code class="language-json">input: sourcekitten structure --text &quot;struct A { func b() {} }&quot;
+
+output:
+{
+  &quot;key.diagnostic_stage&quot; : &quot;source.diagnostic.stage.swift.parse&quot;,
+  &quot;key.length&quot; : 24,
+  &quot;key.offset&quot; : 0,
+  &quot;key.substructure&quot; : [
+    {
+      &quot;key.accessibility&quot; : &quot;source.lang.swift.accessibility.internal&quot;,
+      &quot;key.bodylength&quot; : 13,
+      &quot;key.bodyoffset&quot; : 10,
+      &quot;key.kind&quot; : &quot;source.lang.swift.decl.struct&quot;,
+      &quot;key.length&quot; : 24,
+      &quot;key.name&quot; : &quot;A&quot;,
+      &quot;key.namelength&quot; : 1,
+      &quot;key.nameoffset&quot; : 7,
+      &quot;key.offset&quot; : 0,
+      &quot;key.substructure&quot; : [
+        {
+          &quot;key.accessibility&quot; : &quot;source.lang.swift.accessibility.internal&quot;,
+          &quot;key.bodylength&quot; : 0,
+          &quot;key.bodyoffset&quot; : 21,
+          &quot;key.kind&quot; : &quot;source.lang.swift.decl.function.method.instance&quot;,
+          &quot;key.length&quot; : 11,
+          &quot;key.name&quot; : &quot;b()&quot;,
+          &quot;key.namelength&quot; : 3,
+          &quot;key.nameoffset&quot; : 16,
+          &quot;key.offset&quot; : 11
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -650,25 +697,6 @@ var Derived = function (_Base) {
 <p><strong>问刘十九</strong> 白居易 唐</p>
 <p>绿蚁新醅酒，红泥小火炉。</p>
 <p>晚来天欲雪，能饮一杯无。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一个二逼的小Bug]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/yi-ge-er-bi-de-xiao-bug</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/yi-ge-er-bi-de-xiao-bug">
-        </link>
-        <updated>2018-01-06T16:26:05.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="bug描述">Bug描述</h3>
-<p>webView加载bundle下的html,相对于mainBundle的路径如下：</p>
-<blockquote>
-<p>H5Project/module/Homepage/views/test.html</p>
-</blockquote>
-<p>使用模拟器可以正常加载显示网页，<strong>使用真机找不到网页闪退</strong>。</p>
-<h3 id="原因">原因</h3>
-<p>路径书写错误<code>Homepage</code>应该改为<code>HomePage</code>。字母P大写。</p>
-<h3 id="分析">分析</h3>
-<p>模拟器的文件系统与Mac一致，文件路径不区分大小写，所以可以找到网页。<br>
-真机使用的iOS文件系统，文件路径区分大小写。所以找不到网页。</p>
 ]]></content>
     </entry>
 </feed>
