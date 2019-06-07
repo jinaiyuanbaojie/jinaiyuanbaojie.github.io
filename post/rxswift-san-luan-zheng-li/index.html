@@ -1,0 +1,406 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RxSwift散乱整理 | 乱弹软件</title>
+<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1559925864842">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://jinaiyuanbaojie.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://jinaiyuanbaojie.github.io/">
+  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1559925864842" alt="">
+  </a>
+  <h1 class="site-title">
+    乱弹软件
+  </h1>
+  <p class="site-description">
+    小舟从此逝，江海寄余生！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://jinaiyuanbaojie.github.io/post/blog/" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/jinaiyuanbaojie" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              RxSwift散乱整理
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-07-13 ·
+              </time>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/Ued7Uq5DU" class="post-tag">
+                  # Swift
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="rxswift散乱整理">RxSwift散乱整理</h3>
+<hr>
+<h4 id="1rxswift是什么">1.RxSwift是什么</h4>
+<p><strong>RxSwift</strong>是应用于Swift语言的响应式编程框架。遵从<code>Rx</code>社区的响应式协议。</p>
+<h4 id="2rxswift可以解决什么问题">2.RxSwift可以解决什么问题</h4>
+<ul>
+<li>整合苹果官方的异步编程API（NotificationCenter Delegate GCD Closure）</li>
+<li>简化异步编程</li>
+<li>利用函数式编程和响应式编程，解决命令式编程的固有问题</li>
+</ul>
+<h4 id="3rxswift的好处">3.RxSwift的好处</h4>
+<blockquote>
+<p>响应式编程提高了代码的抽象层级，所以你可以只关注定义了业务逻辑的那些相互依赖的事件，而非纠缠于大量的实现细节。RP 的代码往往会更加简明。</p>
+</blockquote>
+<h4 id="0待整理的杂项">0.待整理的杂项</h4>
+<blockquote>
+<p>在学习过程中最困难的一部分是 以响应式编程的方式思考</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/27678951">响应式编程（Reactive Programming）介绍</a></p>
+<blockquote>
+<p>The three building blocks of Rx code are <strong>observables</strong>, <strong>operators</strong>, and <strong>schedulers</strong>.</p>
+</blockquote>
+<p><strong>Observable<T></strong> 可以发送三种事件：<code>next</code>、<code>complete</code>、<code>error</code>。<br>
+Sequences分为有限序列和无限序列。<br>
+Subjects act as both an observable and an observer.<br>
+Stream Sequence Signal Observable....<br>
+Observer,subscribe,next,complete,error.Sheduler.Subject,</p>
+<p>==下面的类或者协议还有各种扩展==</p>
+<h3 id="observable">Observable</h3>
+<pre><code>public class Observable&lt;Element&gt; : ObservableType {
+    /// ObservableType是protocol，实现类需要指定E的具体类型
+    public typealias E = Element
+    
+    //ObserverType和ObservableType指定的E需要一致
+    public func subscribe&lt;O: ObserverType&gt;(_ observer: O) -&gt; Disposable where O.E == E {
+        rxAbstractMethod()
+    }
+    
+    public func asObservable() -&gt; Observable&lt;E&gt; {
+        return self
+    }
+}
+</code></pre>
+<h3 id="observableconvertibletype">ObservableConvertibleType</h3>
+<pre><code>public protocol ObservableConvertibleType {
+    /// Type of elements in sequence.
+    associatedtype E
+
+    /// Converts `self` to `Observable` sequence.
+    ///
+    /// - returns: Observable sequence that represents `self`.
+    func asObservable() -&gt; Observable&lt;E&gt;
+}
+</code></pre>
+<h3 id="observabletypeobservableconvertibletype">ObservableType:ObservableConvertibleType</h3>
+<pre><code>public protocol ObservableType : ObservableConvertibleType {
+    func subscribe&lt;O: ObserverType&gt;(_ observer: O) -&gt; Disposable where O.E == E
+}
+</code></pre>
+<h3 id="observertype">ObserverType</h3>
+<pre><code>public protocol ObserverType {
+    /// The type of elements in sequence that observer can observe.
+    associatedtype E
+
+    /// Notify observer about sequence event.
+    ///
+    /// - parameter event: Event that occurred.
+    func on(_ event: Event&lt;E&gt;)
+}
+</code></pre>
+<h3 id="event">Event</h3>
+<pre><code>public enum Event&lt;Element&gt; {
+    /// Next element is produced.
+    case next(Element)
+
+    /// Sequence terminated with an error.
+    case error(Swift.Error)
+
+    /// Sequence completed successfully.
+    case completed
+}
+</code></pre>
+<h3 id="disposable">Disposable</h3>
+<pre><code>/// Respresents a disposable resource.
+public protocol Disposable {
+    /// Dispose resource.
+    func dispose()
+}
+</code></pre>
+<h3 id="producerobservale">Producer:Observale</h3>
+<h3 id="目录结构">目录结构</h3>
+<pre><code>.
+├── AnyObserver.swift
+├── Cancelable.swift
+├── Concurrency
+│   ├── AsyncLock.swift
+│   ├── Lock.swift
+│   ├── LockOwnerType.swift
+│   ├── SynchronizedDisposeType.swift
+│   ├── SynchronizedOnType.swift
+│   └── SynchronizedUnsubscribeType.swift
+├── ConnectableObservableType.swift
+├── Deprecated.swift
+├── Disposable.swift
+├── Disposables
+│   ├── AnonymousDisposable.swift
+│   ├── BinaryDisposable.swift
+│   ├── BooleanDisposable.swift
+│   ├── CompositeDisposable.swift
+│   ├── Disposables.swift
+│   ├── DisposeBag.swift
+│   ├── DisposeBase.swift
+│   ├── NopDisposable.swift
+│   ├── RefCountDisposable.swift
+│   ├── ScheduledDisposable.swift
+│   ├── SerialDisposable.swift
+│   ├── SingleAssignmentDisposable.swift
+│   └── SubscriptionDisposable.swift
+├── Errors.swift
+├── Event.swift
+├── Extensions
+│   ├── Bag+Rx.swift
+│   └── String+Rx.swift
+├── GroupedObservable.swift
+├── ImmediateSchedulerType.swift
+├── Info.plist
+├── Observable.swift
+├── ObservableConvertibleType.swift
+├── ObservableType+Extensions.swift
+├── ObservableType.swift
+├── Observables
+│   ├── AddRef.swift
+│   ├── Amb.swift
+│   ├── AsMaybe.swift
+│   ├── AsSingle.swift
+│   ├── Buffer.swift
+│   ├── Catch.swift
+│   ├── CombineLatest+Collection.swift
+│   ├── CombineLatest+arity.swift
+│   ├── CombineLatest+arity.tt
+│   ├── CombineLatest.swift
+│   ├── Concat.swift
+│   ├── Create.swift
+│   ├── Debounce.swift
+│   ├── Debug.swift
+│   ├── DefaultIfEmpty.swift
+│   ├── Deferred.swift
+│   ├── Delay.swift
+│   ├── DelaySubscription.swift
+│   ├── Dematerialize.swift
+│   ├── DistinctUntilChanged.swift
+│   ├── Do.swift
+│   ├── ElementAt.swift
+│   ├── Empty.swift
+│   ├── Enumerated.swift
+│   ├── Error.swift
+│   ├── Filter.swift
+│   ├── First.swift
+│   ├── Generate.swift
+│   ├── GroupBy.swift
+│   ├── Just.swift
+│   ├── Map.swift
+│   ├── Materialize.swift
+│   ├── Merge.swift
+│   ├── Multicast.swift
+│   ├── Never.swift
+│   ├── ObserveOn.swift
+│   ├── Optional.swift
+│   ├── Producer.swift
+│   ├── Range.swift
+│   ├── Reduce.swift
+│   ├── Repeat.swift
+│   ├── RetryWhen.swift
+│   ├── Sample.swift
+│   ├── Scan.swift
+│   ├── Sequence.swift
+│   ├── ShareReplayScope.swift
+│   ├── SingleAsync.swift
+│   ├── Sink.swift
+│   ├── Skip.swift
+│   ├── SkipUntil.swift
+│   ├── SkipWhile.swift
+│   ├── StartWith.swift
+│   ├── SubscribeOn.swift
+│   ├── Switch.swift
+│   ├── SwitchIfEmpty.swift
+│   ├── Take.swift
+│   ├── TakeLast.swift
+│   ├── TakeUntil.swift
+│   ├── TakeWhile.swift
+│   ├── Throttle.swift
+│   ├── Timeout.swift
+│   ├── Timer.swift
+│   ├── ToArray.swift
+│   ├── Using.swift
+│   ├── Window.swift
+│   ├── WithLatestFrom.swift
+│   ├── Zip+Collection.swift
+│   ├── Zip+arity.swift
+│   ├── Zip+arity.tt
+│   └── Zip.swift
+├── ObserverType.swift
+├── Observers
+│   ├── AnonymousObserver.swift
+│   ├── ObserverBase.swift
+│   └── TailRecursiveSink.swift
+├── Platform
+│   ├── DataStructures
+│   │   ├── Bag.swift -&gt; ../../../Platform/DataStructures/Bag.swift
+│   │   ├── InfiniteSequence.swift -&gt; ../../../Platform/DataStructures/InfiniteSequence.swift
+│   │   ├── PriorityQueue.swift -&gt; ../../../Platform/DataStructures/PriorityQueue.swift
+│   │   └── Queue.swift -&gt; ../../../Platform/DataStructures/Queue.swift
+│   ├── DeprecationWarner.swift -&gt; ../../Platform/DeprecationWarner.swift
+│   ├── DispatchQueue+Extensions.swift -&gt; ../../Platform/DispatchQueue+Extensions.swift
+│   ├── Platform.Darwin.swift -&gt; ../../Platform/Platform.Darwin.swift
+│   ├── Platform.Linux.swift -&gt; ../../Platform/Platform.Linux.swift
+│   └── RecursiveLock.swift -&gt; ../../Platform/RecursiveLock.swift
+├── Reactive.swift
+├── Rx.swift
+├── RxMutableBox.swift
+├── SchedulerType.swift
+├── Schedulers
+│   ├── ConcurrentDispatchQueueScheduler.swift
+│   ├── ConcurrentMainScheduler.swift
+│   ├── CurrentThreadScheduler.swift
+│   ├── HistoricalScheduler.swift
+│   ├── HistoricalSchedulerTimeConverter.swift
+│   ├── Internal
+│   │   ├── DispatchQueueConfiguration.swift
+│   │   ├── InvocableScheduledItem.swift
+│   │   ├── InvocableType.swift
+│   │   ├── ScheduledItem.swift
+│   │   └── ScheduledItemType.swift
+│   ├── MainScheduler.swift
+│   ├── OperationQueueScheduler.swift
+│   ├── RecursiveScheduler.swift
+│   ├── SchedulerServices+Emulation.swift
+│   ├── SerialDispatchQueueScheduler.swift
+│   ├── VirtualTimeConverterType.swift
+│   └── VirtualTimeScheduler.swift
+├── Subjects
+│   ├── AsyncSubject.swift
+│   ├── BehaviorSubject.swift
+│   ├── PublishSubject.swift
+│   ├── ReplaySubject.swift
+│   └── SubjectType.swift
+├── SwiftSupport
+│   └── SwiftSupport.swift
+└── Traits
+    ├── Completable+AndThen.swift
+    ├── Completable.swift
+    ├── Maybe.swift
+    ├── ObservableType+PrimitiveSequence.swift
+    ├── PrimitiveSequence+Zip+arity.swift
+    ├── PrimitiveSequence+Zip+arity.tt
+    ├── PrimitiveSequence.swift
+    └── Single.swift
+</code></pre>
+<h3 id="tips">TIPS</h3>
+<ul>
+<li>.tt文件 生成代码的模版文件 T4(Text Template Transformation Toolkit)</li>
+<li><code>OSAtomicCompareAndSwap32Barrier(_oldValue _newValue _theValue)-&gt;Bool</code> 如果_oldValue == _theValue，那么设置_newValue并返回true。保证操作的原子性。</li>
+<li><code>extension NSObject: ReactiveCompatible { }</code></li>
+<li><code>@inline(never)</code> 永远不要把函数编译成内联形式</li>
+<li><code>@inline(__always)</code> 与上面相反</li>
+<li><strong>ContiguousArray</strong> 不和OC桥接的话，比使用Array更加有效率</li>
+<li><strong>precondition(_ condition @escape)</strong></li>
+<li><code>swift(&gt;=4.0)</code> 内置宏判断swift版本</li>
+<li><strong>attribute</strong>((constructor)) main函数前执行某方法</li>
+<li><code>.scpt</code>AppleScript是用在MacOSX上的脚本语言</li>
+<li><code>insert_dylib</code>可以给App注入动态库。</li>
+<li>[在OC中使用 class 属性修饰符] 就是给类添加静态成员，但是不会自动合成getter setter，这么做是为了与Swift桥接。（早他妈该有这个东西了）</li>
+<li>NSURLCache</li>
+</ul>
+<h3 id="observeon-vs-subscribeon">ObserveOn VS SubscribeOn</h3>
+<ul>
+<li>SubscribeOn<br>
+指定 <code>let subscription = Observable.subscribe(self)</code> 语句的执行线程。</li>
+<li>ObserveOn<br>
+指定<code>Observer.on(event)</code>方法的执行线程</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://jinaiyuanbaojie.github.io//post/android-hotfix">
+              <h3 class="post-title">
+                Android HotFix
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://jinaiyuanbaojie.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
