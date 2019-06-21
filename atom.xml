@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-06-07T16:52:04.126Z</updated>
+    <updated>2019-06-21T09:25:49.287Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
@@ -10,6 +10,329 @@
     <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
     <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 乱弹软件</rights>
+    <entry>
+        <title type="html"><![CDATA[计算机基础总结]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie">
+        </link>
+        <updated>2019-06-21T08:18:36.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="free-talk-about-programming">Free talk about Programming</h1>
+<p>meetting room 810</p>
+<h2 id="什么是计算机">什么是计算机</h2>
+<ul>
+<li>计算==机器==
+<ul>
+<li>古人的结绳法</li>
+<li>算盘
+<ul>
+<li>古代的码农</li>
+<li>CPU人脑 磁盘账本 内存算盘不具有记忆功能</li>
+<li>没有代码，无法做到自动化，人力驱动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>现代计算机
+<ul>
+<li>冯诺伊曼体系结构的计算机
+<ul>
+<li>组成：CPU 存储 IO 总线</li>
+<li>量子计算</li>
+</ul>
+</li>
+<li>IBM大型机到现在的小型机
+<ul>
+<li>制作工艺的提升，体积变小运算速度变快</li>
+<li>为什么是二进制
+<ul>
+<li>模拟电路数字电路</li>
+<li>高底电平两种状态  一分钱～10块 五千万～一亿</li>
+</ul>
+</li>
+<li>不一定非要是二进制
+<ul>
+<li>需要发现新材料</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代码和电力驱动
+<ul>
+<li>本质上还是人脑驱动</li>
+<li>人生产代码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="编程的内功">编程的内功</h2>
+<ul>
+<li>操作系统
+<ul>
+<li>进程管理</li>
+<li>内存管理</li>
+<li>文件系统</li>
+<li>IO/设备驱动</li>
+<li>定时器/中断</li>
+</ul>
+</li>
+<li>数据结构与算法
+<ul>
+<li>数据的组成方式和操作方式
+<ul>
+<li>链表，数组，堆，栈</li>
+<li>散列表</li>
+<li>树，搜索树，红黑树，B+树</li>
+<li>图，路径搜索，广度遍历，深度遍历</li>
+</ul>
+</li>
+<li>提升具体场景下的增删改查性能
+<ul>
+<li>堆，最大堆最小堆，最值在顶部，优先队列</li>
+<li>栈，语法检查括号匹配</li>
+<li>散列表，O(1)</li>
+<li>红黑树， Linux内核进程调度算法</li>
+<li>B+树，数据库索引，存储在磁盘</li>
+<li>图：路由器，Cocoapods依赖</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算机组成原理
+<ul>
+<li>存储金字塔结构，经济角度，折衷设计</li>
+<li>有效的原因：局部原理</li>
+<li>voliate
+<ul>
+<li>防止指令重排</li>
+<li>防止缓存变量</li>
+</ul>
+</li>
+<li>SDWebImage/Glide</li>
+</ul>
+</li>
+<li>计算机网络</li>
+<li>编译原理</li>
+<li><s>计算机体系结构</s></li>
+</ul>
+<h2 id="编程的维度">编程的维度</h2>
+<ul>
+<li>一维编程
+<ul>
+<li>烂代码生产者</li>
+<li>面条逻辑，缺少设计感</li>
+<li>打字员，嘛也不懂</li>
+</ul>
+</li>
+<li>二维编程
+<ul>
+<li>可读性</li>
+<li>可维护性</li>
+<li>不知道计算机的基本原理</li>
+</ul>
+</li>
+<li>三维编程
+<ul>
+<li>内功，多线程场景考虑，缓存的使用等等</li>
+<li>大智若愚，懂得取舍，不浮夸</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="进程">进程</h2>
+<ul>
+<li>copy on write</li>
+</ul>
+<blockquote>
+<p>进程，厨师cpu菜谱程序，原材料外设，炒菜的动作就是进程。</p>
+</blockquote>
+<h2 id="内存">内存</h2>
+<ul>
+<li>虚拟内存
+<ul>
+<li>页面置换算法</li>
+</ul>
+</li>
+<li>内存抖动</li>
+<li>内存对齐</li>
+</ul>
+<h2 id="helloc是如何运行的">hello.c是如何运行的</h2>
+<ul>
+<li>编译
+<ul>
+<li>预处理，去除注释，宏替换</li>
+<li>词法分割，token</li>
+<li>抽象语法树生成</li>
+<li>语法分析，语义分析</li>
+<li>前端：编译成为中间产物</li>
+<li>后端：编译成为目标平台的汇编代码</li>
+<li>汇编器生成二进制代码
+<ul>
+<li>.so文件</li>
+<li>iOS的胖安装包 bitcode</li>
+<li>ABI稳定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>链接
+<ul>
+<li>静态链接
+<ul>
+<li>查找缺失的符号</li>
+<li>重定位</li>
+<li>libffmpeg的例子</li>
+</ul>
+</li>
+<li>动态链接
+<ul>
+<li>为什么要动态链接：省内存</li>
+<li>启动的时候链接</li>
+<li>第一次使用的时候链接</li>
+<li>手动链接
+<ul>
+<li>dlopen()</li>
+<li>dlsyml()</li>
+<li>dlclose()</li>
+</ul>
+</li>
+<li>System.load()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>装载
+<ul>
+<li>ELF/PE/Mach-O/.dex</li>
+<li>分析文件头
+<ul>
+<li>Magic-Number</li>
+<li>元数据</li>
+<li>.code .data .bss .rodata .debug .dynamic等等</li>
+<li>SMT iOS debug模式上线/fishhook</li>
+</ul>
+</li>
+<li>动态链接所需要的库，至少需要官方的运行时库
+<ul>
+<li>查找路径
+<ul>
+<li>*NIX系统下</li>
+<li>手动指定/Xcode配置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行：
+<ul>
+<li>main()数是入口</li>
+<li>mian()最先执行？
+<ul>
+<li><strong>attribute(constructor)</strong></li>
+<li>.init</li>
+<li>.deinit</li>
+<li>静态变量初始化</li>
+</ul>
+</li>
+<li>mian()数只是被runtime封装了而已！</li>
+</ul>
+</li>
+<li>运行时内存布局
+<ul>
+<li>内核空间/用户空间</li>
+<li>代码段，数据段，堆，栈</li>
+<li>函数调用示例子
+<ul>
+<li>寄存器：PC ESP EBP EAX</li>
+<li>StackFrame</li>
+<li>系统调用<code>printf</code>
+<ul>
+<li>软中断，硬中断</li>
+<li>可变参数</li>
+<li>内核陷入int 0x80，内核栈</li>
+</ul>
+</li>
+<li>StackOverflow/栈攻击</li>
+</ul>
+</li>
+<li>多线程切换
+<ul>
+<li>多线程必要性，IO密集</li>
+<li>吞吐量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="编程语言的选择">编程语言的选择</h2>
+<ul>
+<li>我们至少应该会什么？
+<ul>
+<li>C/<s>C++</s>： “高级汇编语言”，接近机器，更直观的感受
+<ul>
+<li>内存分配，管理</li>
+<li>指针：引用类型，值类型就是玩具</li>
+<li>编译相关</li>
+<li>JVM，JNI，CoreFoundation, Kernel</li>
+</ul>
+</li>
+<li>面向对象语言
+<ul>
+<li>Java: 脱离C++那些繁杂的特性，让开发者更关注设计和面向对象的思维方式</li>
+<li>Swift/Kotlin：现代的语言，现代的特性，更加简洁</li>
+</ul>
+</li>
+<li>动态语言：Js Python Ruby.</li>
+<li><s>函数式语言</s>：</li>
+</ul>
+</li>
+<li>交叉训练
+<ul>
+<li>“语言不重要论”纯扯淡
+<ul>
+<li>这些人只会一门语言</li>
+<li>或者其它语言hello world</li>
+</ul>
+</li>
+<li>不同的语言有不同的设计理念和代码风格
+<ul>
+<li>语言决定思考问题的模式</li>
+<li>自然语言：汉语vs英语</li>
+<li>RxJava vs RxJs; TypeScript的出现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作为使用者，大胆评判
+<ul>
+<li>工具的使用者不需要了解工具的原理</li>
+<li>你的直观感受？</li>
+<li>只需要吃菜，不需要做饭</li>
+</ul>
+</li>
+</ul>
+<h2 id="编程语言的进化">编程语言的进化</h2>
+<ul>
+<li>纸带打孔：Debug &amp; 重写</li>
+<li>汇编：CPU指令集的映射，不具有可移植性</li>
+<li>C语言</li>
+<li>高级语言：面向对象，函数式</li>
+<li>语言的设计目标：
+<ul>
+<li>跨平台</li>
+<li>执行高效</li>
+<li>省内存</li>
+<li>易于学习</li>
+<li>高级特性，可读性强</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>语言也是营销，你会的不代表好，只是你恰巧会</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[iOS CI构建问题：Jekins&CocoaPods]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/ios-ci-gou-jian-wen-ti-jekinsandcocoapods</id>
@@ -941,21 +1264,6 @@ var Derived = function (_Base) {
   return Derived;
 }(Base);
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[work around VS bug fix]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/work-around-vs-bug-fix</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/work-around-vs-bug-fix">
-        </link>
-        <updated>2018-05-20T16:41:39.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="work-around-vs-bug-fix">work around VS bug fix</h1>
-<p>在<code>stackoverflow</code>上搜索问题时，发现这两个词汇。</p>
-<ul>
-<li>work around:虽然修复了问题，但是绕过了产生问题的根本原因，用在外层打补丁的方式解决。比如数组越界了，不去查找为何越界，只是加了判断越界的逻辑。</li>
-<li>bug fix:发现问题根源，从根本上修复问题。</li>
-</ul>
-<p>不管做什么事情，<strong>bug fix</strong>才能更快的成长。</p>
 ]]></content>
     </entry>
 </feed>
