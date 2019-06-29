@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-06-21T09:28:31.798Z</updated>
+    <updated>2019-06-29T15:20:31.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
@@ -10,6 +10,37 @@
     <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
     <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 乱弹软件</rights>
+    <entry>
+        <title type="html"><![CDATA[NSHisperOfSwift]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/nshisperofswift</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/nshisperofswift">
+        </link>
+        <updated>2019-06-29T15:19:45.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="optional">Optional</h2>
+<p>Type?的内存布局：Type类型布局+NullableFlag</p>
+<h2 id="swiftobject">SwiftObject</h2>
+<p>Swift类的默认基类，也可指定为NSObject</p>
+<h2 id="swift-vtable">Swift VTable</h2>
+<p>按照声明的方法顺序都存在虚函数表中。不论是否被Override.</p>
+<h2 id="swift-属性访问">Swift 属性访问</h2>
+<p>会额外调用swift_accessBegin和swift_accessEnd.
+didSet和willSet等会被额外编译成函数。插入到属性访问的汇编代码中。</p>
+<blockquote>
+<p>推测是为了兼容OC中的atomic关键字</p>
+</blockquote>
+<h2 id="swift消息转发">Swift消息转发</h2>
+<p>根据方法声明的位置和调用方式共同决定。</p>
+<ul>
+<li>虚函数表</li>
+<li>直接绑定</li>
+<li>OC消息派发</li>
+</ul>
+<h2 id="aarry内存布局">Aarry内存布局</h2>
+<p>指针+个数</p>
+<h2 id="class实例的内存布局">class实例的内存布局</h2>
+<p>isa + 引用计数值</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[计算机基础总结]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie</id>
@@ -1028,242 +1059,6 @@ dependencies {
 </ul>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[JavaScript中的继承]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/javascript-zhong-de-ji-cheng</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/javascript-zhong-de-ji-cheng">
-        </link>
-        <updated>2018-06-27T16:16:16.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="开始之前">开始之前</h2>
-<ul>
-<li><code>JavaScript</code>使用场景
-<ul>
-<li>Web前端</li>
-<li>服务器</li>
-<li>PC跨平台应用</li>
-<li>移动端：<code>React Native</code> <code>Weex</code> <code>微信小程序</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Jeff Atwood: Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
-</blockquote>
-<ul>
-<li><code>JavaScript</code>的世界一切都是对象,函数也是对象!对象是<strong>一等公民</strong>！</li>
-<li><code>JavaScript</code>是<strong>动态</strong>语言：可以方便的在运行时给对象添加或删除属性、方法</li>
-</ul>
-<blockquote>
-<p>动态性比较：JavaScript &gt; Objective-C &gt; Java &gt; Swit &gt; C++</p>
-</blockquote>
-<ul>
-<li>
-<p><code>JavaScript</code><strong>多范式</strong>语言</p>
-<ul>
-<li>过程式</li>
-<li>面向对象</li>
-<li>函数式</li>
-<li>响应式</li>
-<li>....</li>
-</ul>
-</li>
-<li>
-<p><code>JavaScript</code>调试</p>
-<ul>
-<li>浏览器环境下运行：Chrome浏览器开发者工具</li>
-<li>Node环境运行：https://nodejs.org/zh-cn/</li>
-</ul>
-</li>
-<li>
-<p><code>Hello world</code></p>
-</li>
-</ul>
-<pre><code class="language-js">    var jsObject = {name:'Andrew'}
-    
-    console.log(jsObject) //{name: &quot;Andrew&quot;}
-    console.log(jsObject.name) //Andrew
-    console.log(typeof jsObject) //object
-    console.log(jsObject.age) //undefined
-    jsObject.age = 30
-    console.log(jsObject.age) //30
-
-    function foo(){
-        return 'I am foo.'
-    }
-    
-    jsObject.speak = foo
-    jsObject.speak() //&quot;I am foo.&quot;
-    delete jsObject.speak
-    console.log(jsObject.speak) //undefined
-    
-    console.log(typeof foo) //function
-    foo.customTag = 'HomeCredit';
-    console.log(foo.customTag) //HomeCredit
-    
-    function foo2(){ 
-        return 2018
-    }
-    foo.customFunc = foo2
-    foo.customFunc() //2018
-</code></pre>
-<h2 id="继承">继承</h2>
-<ul>
-<li><code>JavaScript</code>基于原型继承的语言:
-<ul>
-<li><code>prototype</code>(<strong>原型</strong>):只有函数对象拥有此字段，创建一个函数就有一个对应的函数原型对象，<code>prototype</code>指向函数原型对象</li>
-<li><code>__proto__</code>(<strong>原型链</strong>):任何对象都拥有<code>__proto__</code>这个字段，用来在运行时查找调用的<code>属性</code>、<code>方法</code>,<code>__proto__</code>也指向某个对象，以此构成查找链。</li>
-<li>通过函数创建的对象的<code>__proto__</code>字段，自动指向函数的原型对象</li>
-</ul>
-<pre><code class="language-js">function Foo(){};
-var foo = new Foo(); //只有函数才能使用new关键字
-foo.__proto__ == Foo.prototype
-</code></pre>
-<blockquote>
-<p>tips:<code>JavaScript</code>的世界一切都是对象</p>
-</blockquote>
-</li>
-<li>代码</li>
-</ul>
-<pre><code class="language-js">function Base(){
-    
-}; //声明Base类，同时也是构造函数constructor，
-console.log(Base) //ƒ Base(){}
-
-console.log(Base.prototype)
-/*
-Base.prototype
-    constructor:ƒ Base()
-    __proto__:Object
-*/
-console.log(Base.__proto__) //ƒ () { [native code] }, Function.prototype
-Base.__proto__ == Function.prototype //true
-
-var base = new Base();
-base.constructor //ƒ Base(){}
-base.constructor == Base //true
-base.__proto__ == Base.prototype //true
-
-Object.prototype
-/*
-constructor:ƒ Object()
-hasOwnProperty:ƒ hasOwnProperty()
-isPrototypeOf:ƒ isPrototypeOf()
-propertyIsEnumerable:ƒ propertyIsEnumerable()
-toLocaleString:ƒ toLocaleString()
-toString:ƒ toString()
-valueOf:ƒ valueOf()
-__defineGetter__:ƒ __defineGetter__()
-__defineSetter__:ƒ __defineSetter__()
-__lookupGetter__:ƒ __lookupGetter__()
-__lookupSetter__:ƒ __lookupSetter__()
-get __proto__:ƒ __proto__()
-set __proto__:ƒ __proto__()
-*/
-
-Function.prototype // ƒ () { [native code] }
-Object.__proto__ == Function.prototype //true
-Function.prototype.__proto__ == Object.prototype //true
-Base.__proto__ == Function.prototype //true
-
-base.toString(); //&quot;[object Object]&quot; 
-
-Base.prototype = {
-    method1:function(){
-        return &quot;Base method1&quot;;
-    },
-    
-    method2:function(){
-        return &quot;Base method2&quot;;
-    }
-};
-base.method1(); //undefined
-base.method2(); //undefined
-
-var base_new = new Base();
-base_new.method1(); //&quot;Base method1&quot;
-base_new.method2(); //&quot;Base method2&quot;
-
-function Derived(){}
-Derived.prototype = {
-    method1:function(){return &quot;Derived method1&quot;;},
-    method3:function(){return &quot;Derived method3&quot;;}
-}
-Derived.prototype.__proto__ = Base.prototype;
-var derived = new Derived();
-derived.method1(); //&quot;Derived method1&quot;
-derived.method2(); //&quot;Base method2&quot; 
-derived.method3(); //&quot;Derived method3&quot;
-</code></pre>
-<ul>
-<li>图例<br>
-<img src="https://jinaiyuanbaojie.github.io//post-images/1559924380346.jpg" alt=""></li>
-<li><code>ES6</code>
-<ul>
-<li>新一代的js版本</li>
-<li>添加了各种语法和语法糖</li>
-<li><a href="http://es6.ruanyifeng.com/#docs/class-extends">文档</a>：阮一峰教程</li>
-<li><a href="https://babeljs.io/en/repl">Babel</a>: ES6代码转ES5</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">class Base {
-  foo(){
-    return &quot;i am base&quot;
-  }
-}
-
-class Derived extends Base {
-  foo(){
-    return &quot;i am Derived&quot;
-  }
-}
-</code></pre>
-<p>转码后</p>
-<pre><code class="language-js">&quot;use strict&quot;;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (&quot;value&quot; in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(&quot;this hasn't been initialised - super() hasn't been called&quot;); } return call &amp;&amp; (typeof call === &quot;object&quot; || typeof call === &quot;function&quot;) ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== &quot;function&quot; &amp;&amp; superClass !== null) { throw new TypeError(&quot;Super expression must either be null or a function, not &quot; + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(&quot;Cannot call a class as a function&quot;); } }
-
-var Base = function () {
-  function Base() {
-    _classCallCheck(this, Base);
-  }
-
-  _createClass(Base, [{
-    key: &quot;foo&quot;,
-    value: function foo() {
-      return &quot;i am base&quot;;
-    }
-  }]);
-
-  return Base;
-}();
-
-var Derived = function (_Base) {
-  _inherits(Derived, _Base);
-
-  function Derived() {
-    _classCallCheck(this, Derived);
-
-    return _possibleConstructorReturn(this, (Derived.__proto__ || Object.getPrototypeOf(Derived)).apply(this, arguments));
-  }
-
-  _createClass(Derived, [{
-    key: &quot;foo&quot;,
-    value: function foo() {
-      return &quot;i am Derived&quot;;
-    }
-  }]);
-
-  return Derived;
-}(Base);
-</code></pre>
 ]]></content>
     </entry>
 </feed>

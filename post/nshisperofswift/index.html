@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>work around VS bug fix | 乱弹软件</title>
+<title>NSHisperOfSwift | 乱弹软件</title>
 <link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1561821628390">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -78,27 +78,47 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              work around VS bug fix
+              NSHisperOfSwift
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2018-05-21 ·
+                · 2019-06-29 ·
               </time>
               
-                <a href="https://jinaiyuanbaojie.github.io//tag/-1hMoxnEa" class="post-tag">
-                  # 随笔
+                <a href="https://jinaiyuanbaojie.github.io//tag/Ued7Uq5DU" class="post-tag">
+                  # Swift
+                </a>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/LPv21aCff" class="post-tag">
+                  # iOS
                 </a>
               
             </div>
             
             <div class="post-content">
-              <h1 id="work-around-vs-bug-fix">work around VS bug fix</h1>
-<p>在<code>stackoverflow</code>上搜索问题时，发现这两个词汇。</p>
+              <h2 id="optional">Optional</h2>
+<p>Type?的内存布局：Type类型布局+NullableFlag</p>
+<h2 id="swiftobject">SwiftObject</h2>
+<p>Swift类的默认基类，也可指定为NSObject</p>
+<h2 id="swift-vtable">Swift VTable</h2>
+<p>按照声明的方法顺序都存在虚函数表中。不论是否被Override.</p>
+<h2 id="swift-属性访问">Swift 属性访问</h2>
+<p>会额外调用swift_accessBegin和swift_accessEnd.
+didSet和willSet等会被额外编译成函数。插入到属性访问的汇编代码中。</p>
+<blockquote>
+<p>推测是为了兼容OC中的atomic关键字</p>
+</blockquote>
+<h2 id="swift消息转发">Swift消息转发</h2>
+<p>根据方法声明的位置和调用方式共同决定。</p>
 <ul>
-<li>work around:虽然修复了问题，但是绕过了产生问题的根本原因，用在外层打补丁的方式解决。比如数组越界了，不去查找为何越界，只是加了判断越界的逻辑。</li>
-<li>bug fix:发现问题根源，从根本上修复问题。</li>
+<li>虚函数表</li>
+<li>直接绑定</li>
+<li>OC消息派发</li>
 </ul>
-<p>不管做什么事情，<strong>bug fix</strong>才能更快的成长。</p>
+<h2 id="aarry内存布局">Aarry内存布局</h2>
+<p>指针+个数</p>
+<h2 id="class实例的内存布局">class实例的内存布局</h2>
+<p>isa + 引用计数值</p>
 
             </div>
           </article>
@@ -107,9 +127,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://jinaiyuanbaojie.github.io//post/hello-https">
+            <a href="https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie">
               <h3 class="post-title">
-                Hello HTTPS!
+                计算机基础总结
               </h3>
             </a>
           </div>
