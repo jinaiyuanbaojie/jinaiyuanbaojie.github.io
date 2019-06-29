@@ -1,0 +1,314 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redux&amp;Redux-Thunk源码分析题纲 | 乱弹软件</title>
+<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1561821753899">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://jinaiyuanbaojie.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://jinaiyuanbaojie.github.io/">
+  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1561821753899" alt="">
+  </a>
+  <h1 class="site-title">
+    乱弹软件
+  </h1>
+  <p class="site-description">
+    小舟从此逝，江海寄余生！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://jinaiyuanbaojie.github.io/post/blog/" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/jinaiyuanbaojie" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Redux&amp;Redux-Thunk源码分析题纲
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-06-29 ·
+              </time>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/GgbOYYbTH" class="post-tag">
+                  # JS
+                </a>
+              
+                <a href="https://jinaiyuanbaojie.github.io//tag/-1hMoxnEa" class="post-tag">
+                  # 随笔
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h1 id="reduxredux-thunk源码分析">Redux&amp;Redux-Thunk源码分析</h1>
+<h2 id="响应式编程">响应式编程</h2>
+<ul>
+<li>React/ReactNative</li>
+<li>Flutter</li>
+<li>SwiftUI</li>
+<li>小程序</li>
+<li>Vue.js?</li>
+</ul>
+<blockquote>
+<p>类似于信号传递，改变数据能直接驱动绑定该数据的UI渲染。不需要命令式编程那样显式的发送<code>setText(text)</code>等指令。</p>
+</blockquote>
+<h2 id="存在问题">存在问题</h2>
+<blockquote>
+<p>将整个应用看作是一个状态机，State树直接决定了UI的样式。</p>
+</blockquote>
+<ul>
+<li>如何在不同UI节点之间<strong>共享数据</strong>是最大的问题</li>
+<li>学习Redux的必要性，所有响应式框架基本都有类似的库</li>
+</ul>
+<blockquote>
+<p>Redux管理应用的状态。</p>
+</blockquote>
+<ul>
+<li>Redux简洁优雅，<strong>精品</strong></li>
+</ul>
+<h2 id="redux图例">Redux图例</h2>
+<p><img src="https://smt-repo.s3.cn-north-1.amazonaws.com.cn/redirectinbox/redux.png" alt="image"></p>
+<h2 id="es6的预备知识">es6的预备知识</h2>
+<ul>
+<li>箭头函数(闭包)</li>
+</ul>
+<pre><code class="language-js">// es5
+var fn = function(a, b) {
+    return a + b;
+}
+
+// es6 箭头函数写法，当函数直接被return时，可以省略函数体的括号
+const fn = (a, b) =&gt; a + b;
+</code></pre>
+<ul>
+<li>展开运算符</li>
+</ul>
+<pre><code class="language-js">const arr1 = [1, 2, 3];
+// 这样，arr2 就变成了[1, 2, 3, 10, 20, 30];
+const arr2 = [...arr1, 10, 20, 30];
+</code></pre>
+<ul>
+<li>对象字面量</li>
+</ul>
+<pre><code class="language-js">const name = 'Jane';
+const age = 20
+
+// es5
+var person = {
+    name: name,
+    age: age
+};
+
+// es6
+const person = {
+    name,
+    age
+}
+</code></pre>
+<ul>
+<li>对象的解构访问</li>
+</ul>
+<pre><code class="language-js">const people = {
+    name: 'lux',
+    age: 20
+}
+
+const { name, age } = people
+</code></pre>
+<ul>
+<li>Object.keys()</li>
+</ul>
+<pre><code class="language-js">let person = {
+    name: &quot;linux&quot;,
+    age: 20
+};
+// [&quot;name&quot;, &quot;age&quot;]
+Object.keys(person); 
+</code></pre>
+<ul>
+<li>Array.reduce()</li>
+</ul>
+<pre><code class="language-js"></code></pre>
+<h2 id="redux中的名词">Redux中的名词</h2>
+<ul>
+<li>store, <code>createStore(reducer,preState,enhancer)</code></li>
+<li>state</li>
+<li>action</li>
+<li>store.dispatch(action)</li>
+<li>reducer(preState, action)</li>
+<li>middleware</li>
+</ul>
+<h2 id="redux源码目录">Redux源码目录</h2>
+<ul>
+<li>redux-master/src</li>
+</ul>
+<pre><code>├── applyMiddleware.js  # 用于引入异步，日志等中间件
+├── bindActionCreators.js # 返回可以创建action的函数
+├── combineReducers.js # 分散的reducer集合为一个
+├── compose.js # compose(f,g,h)等价于 f(g(h(...args))))
+├── createStore.js # 创建一个store
+├── index.js # redux对外导出的API
+└── utils # 工具类暂时忽略
+    ├── actionTypes.js
+    ├── isPlainObject.js
+    └── warning.js
+</code></pre>
+<h2 id="redux代码片段">Redux代码片段</h2>
+<blockquote>
+<p>js的表达能力，所见即所得。阅读流畅，不被各种静态语言附加的关键字干扰。但是代码量规模扩大，可能会导致难于维护。</p>
+</blockquote>
+<ul>
+<li>createStore.js</li>
+</ul>
+<pre><code class="language-js">export default function createStore(reducer, preloadedState, enhancer) {
+    ...
+    
+    // createStore(reducer,enhancer);
+    if (typeof preloadedState === 'function' &amp;&amp; typeof enhancer === 'undefined') {
+        enhancer = preloadedState
+        preloadedState = undefined
+    }
+
+    if (typeof enhancer !== 'undefined') {
+        if (typeof enhancer !== 'function') {
+            throw new Error('Expected the enhancer to be a function.')
+        }
+
+        // 中间件. enhancer(createStore)返回函数, function(reducer, preloadedState) -&gt; Store
+        return enhancer(createStore)(reducer, preloadedState)
+    }
+    
+    ...
+    
+    // 函数内的局部变量被捕获
+    let currentReducer = reducer
+    let currentState = preloadedState
+    let currentListeners = []
+    let nextListeners = currentListeners
+    let isDispatching = false
+  
+    ...
+    
+    function getState() { ... }
+    function subscribe(listener) { ... }
+    function dispatch(action) { ... }
+    
+    ...
+    
+    return {
+        dispatch,
+        subscribe,
+        getState
+    }
+}
+</code></pre>
+<ul>
+<li>combineReducers.js</li>
+<li>compose.js</li>
+<li>applyMiddleware.js</li>
+</ul>
+<h2 id="redux-thunk">Redux-Thunk</h2>
+<ul>
+<li>解决异步问题</li>
+<li>Redux-Thunk 50-lines <strong>12.5k-stars</strong></li>
+<li>函数式
+<ul>
+<li>函数可以作为参数和返回值</li>
+<li>函数可以捕获外部变量：参数、局部值</li>
+<li>知道是什么和知道如何做直接存在着巨大的鸿沟</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html">阮一峰系列</a></li>
+<li><a href="https://github.com/reduxjs/redux">Redux</a></li>
+<li><a href="https://github.com/reduxjs/redux-thunk">Redux-Thunk</a></li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://jinaiyuanbaojie.github.io//post/nshisperofswift">
+              <h3 class="post-title">
+                NSHisperOfSwift
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://jinaiyuanbaojie.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

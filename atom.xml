@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-06-29T15:20:31.907Z</updated>
+    <updated>2019-06-29T15:22:55.728Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
@@ -10,6 +10,199 @@
     <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
     <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 乱弹软件</rights>
+    <entry>
+        <title type="html"><![CDATA[Redux&Redux-Thunk源码分析题纲]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang">
+        </link>
+        <updated>2019-06-29T15:22:14.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="reduxredux-thunk源码分析">Redux&amp;Redux-Thunk源码分析</h1>
+<h2 id="响应式编程">响应式编程</h2>
+<ul>
+<li>React/ReactNative</li>
+<li>Flutter</li>
+<li>SwiftUI</li>
+<li>小程序</li>
+<li>Vue.js?</li>
+</ul>
+<blockquote>
+<p>类似于信号传递，改变数据能直接驱动绑定该数据的UI渲染。不需要命令式编程那样显式的发送<code>setText(text)</code>等指令。</p>
+</blockquote>
+<h2 id="存在问题">存在问题</h2>
+<blockquote>
+<p>将整个应用看作是一个状态机，State树直接决定了UI的样式。</p>
+</blockquote>
+<ul>
+<li>如何在不同UI节点之间<strong>共享数据</strong>是最大的问题</li>
+<li>学习Redux的必要性，所有响应式框架基本都有类似的库</li>
+</ul>
+<blockquote>
+<p>Redux管理应用的状态。</p>
+</blockquote>
+<ul>
+<li>Redux简洁优雅，<strong>精品</strong></li>
+</ul>
+<h2 id="redux图例">Redux图例</h2>
+<p><img src="https://smt-repo.s3.cn-north-1.amazonaws.com.cn/redirectinbox/redux.png" alt="image"></p>
+<h2 id="es6的预备知识">es6的预备知识</h2>
+<ul>
+<li>箭头函数(闭包)</li>
+</ul>
+<pre><code class="language-js">// es5
+var fn = function(a, b) {
+    return a + b;
+}
+
+// es6 箭头函数写法，当函数直接被return时，可以省略函数体的括号
+const fn = (a, b) =&gt; a + b;
+</code></pre>
+<ul>
+<li>展开运算符</li>
+</ul>
+<pre><code class="language-js">const arr1 = [1, 2, 3];
+// 这样，arr2 就变成了[1, 2, 3, 10, 20, 30];
+const arr2 = [...arr1, 10, 20, 30];
+</code></pre>
+<ul>
+<li>对象字面量</li>
+</ul>
+<pre><code class="language-js">const name = 'Jane';
+const age = 20
+
+// es5
+var person = {
+    name: name,
+    age: age
+};
+
+// es6
+const person = {
+    name,
+    age
+}
+</code></pre>
+<ul>
+<li>对象的解构访问</li>
+</ul>
+<pre><code class="language-js">const people = {
+    name: 'lux',
+    age: 20
+}
+
+const { name, age } = people
+</code></pre>
+<ul>
+<li>Object.keys()</li>
+</ul>
+<pre><code class="language-js">let person = {
+    name: &quot;linux&quot;,
+    age: 20
+};
+// [&quot;name&quot;, &quot;age&quot;]
+Object.keys(person); 
+</code></pre>
+<ul>
+<li>Array.reduce()</li>
+</ul>
+<pre><code class="language-js"></code></pre>
+<h2 id="redux中的名词">Redux中的名词</h2>
+<ul>
+<li>store, <code>createStore(reducer,preState,enhancer)</code></li>
+<li>state</li>
+<li>action</li>
+<li>store.dispatch(action)</li>
+<li>reducer(preState, action)</li>
+<li>middleware</li>
+</ul>
+<h2 id="redux源码目录">Redux源码目录</h2>
+<ul>
+<li>redux-master/src</li>
+</ul>
+<pre><code>├── applyMiddleware.js  # 用于引入异步，日志等中间件
+├── bindActionCreators.js # 返回可以创建action的函数
+├── combineReducers.js # 分散的reducer集合为一个
+├── compose.js # compose(f,g,h)等价于 f(g(h(...args))))
+├── createStore.js # 创建一个store
+├── index.js # redux对外导出的API
+└── utils # 工具类暂时忽略
+    ├── actionTypes.js
+    ├── isPlainObject.js
+    └── warning.js
+</code></pre>
+<h2 id="redux代码片段">Redux代码片段</h2>
+<blockquote>
+<p>js的表达能力，所见即所得。阅读流畅，不被各种静态语言附加的关键字干扰。但是代码量规模扩大，可能会导致难于维护。</p>
+</blockquote>
+<ul>
+<li>createStore.js</li>
+</ul>
+<pre><code class="language-js">export default function createStore(reducer, preloadedState, enhancer) {
+    ...
+    
+    // createStore(reducer,enhancer);
+    if (typeof preloadedState === 'function' &amp;&amp; typeof enhancer === 'undefined') {
+        enhancer = preloadedState
+        preloadedState = undefined
+    }
+
+    if (typeof enhancer !== 'undefined') {
+        if (typeof enhancer !== 'function') {
+            throw new Error('Expected the enhancer to be a function.')
+        }
+
+        // 中间件. enhancer(createStore)返回函数, function(reducer, preloadedState) -&gt; Store
+        return enhancer(createStore)(reducer, preloadedState)
+    }
+    
+    ...
+    
+    // 函数内的局部变量被捕获
+    let currentReducer = reducer
+    let currentState = preloadedState
+    let currentListeners = []
+    let nextListeners = currentListeners
+    let isDispatching = false
+  
+    ...
+    
+    function getState() { ... }
+    function subscribe(listener) { ... }
+    function dispatch(action) { ... }
+    
+    ...
+    
+    return {
+        dispatch,
+        subscribe,
+        getState
+    }
+}
+</code></pre>
+<ul>
+<li>combineReducers.js</li>
+<li>compose.js</li>
+<li>applyMiddleware.js</li>
+</ul>
+<h2 id="redux-thunk">Redux-Thunk</h2>
+<ul>
+<li>解决异步问题</li>
+<li>Redux-Thunk 50-lines <strong>12.5k-stars</strong></li>
+<li>函数式
+<ul>
+<li>函数可以作为参数和返回值</li>
+<li>函数可以捕获外部变量：参数、局部值</li>
+<li>知道是什么和知道如何做直接存在着巨大的鸿沟</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html">阮一峰系列</a></li>
+<li><a href="https://github.com/reduxjs/redux">Redux</a></li>
+<li><a href="https://github.com/reduxjs/redux-thunk">Redux-Thunk</a></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NSHisperOfSwift]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/nshisperofswift</id>
@@ -964,100 +1157,6 @@ public protocol Disposable {
 <li>满足条件的类会被打桩<code>CLASS_ISPREVERIFED</code>标记，不再引入其他dex文件的代码</li>
 <li>被打桩的类引用热修复的类时会报错</li>
 <li>打桩是为了优化Java代码的装载速度，当A类被标记，引用的B类不在原理的dex文件而在补丁dex文件中时，会报错</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gradle!]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/hello-gradle</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/hello-gradle">
-        </link>
-        <updated>2018-07-04T16:28:44.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="gradle">Gradle</h1>
-<ul>
-<li>Java的打包工具：Server或Android都可以</li>
-<li>基于Groovy语言，Groovy语言运行在JVM上，会编译为class文件，所以可以与Java兼容。</li>
-<li>可以管理Android各模块依赖关系</li>
-</ul>
-<h1 id="android工程结构">Android工程结构</h1>
-<ul>
-<li>setting.gradle 配置那些module参与编译构建</li>
-</ul>
-<pre><code>include ':MyApp', //main module
-        ':subMoudle',
-        ':Base:Utils1', //文件夹Base下的module Utils1
-        ':Base:Utils2'
-</code></pre>
-<ul>
-<li>顶层build.gradle 各个module共享</li>
-</ul>
-<pre><code>//构建脚本（groovy语言）依赖的第三放插件和插件的代码仓库
-buildscript {
-    repositories {
-        google()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-    }
-}
-
-//Android项目（Java语言）依赖的第三放插件和插件的代码仓库
-allprojects {
-    repositories {
-        google()
-    }
-}
-</code></pre>
-<ul>
-<li>app下build.gradle 具体模块的构建指令</li>
-</ul>
-<pre><code>//编译MainModule所依赖的子模块以及jar包的检索路径
-dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':subModule1')
-    api project(':subModule2')
-}
-</code></pre>
-<h1 id="自定义groovy插件">自定义groovy插件</h1>
-<ul>
-<li>
-<p>直接在build.gradle中写逻辑：快速验证功能，复用性差</p>
-</li>
-<li>
-<p>作为groovy lib被build.gradle引用</p>
-<ul>
-<li>新建Android Module/Android Library</li>
-<li>除build.gradle文件外的其余文件全都删除</li>
-<li>新建文件夹<code>src/main/groovy</code>目录</li>
-<li>配置<code>build.gradle</code></li>
-</ul>
-<pre><code>apply plugin: 'groovy' //必选
-apply plugin: 'maven'
-dependencies {
-   //依赖的jar包或者gradle插件
-}
-</code></pre>
-<ul>
-<li>新建resources/META-INF/gradle-plugins/<code>plugin.properties</code></li>
-<li>在文件中配置自定义插件的入口</li>
-</ul>
-<p><code>implementation-class=mypackage.MyPlugin</code></p>
-<ul>
-<li>实现<code>MyPlugin</code></li>
-</ul>
-<pre><code>class MyPlugin implements Plugin&lt;Project&gt; {
-    void apply(Project project) {
-        //自定义Task也可以引用其他groovy类的方法
-        project.task('myTask') &lt;&lt; {
-            println &quot;Hello world&quot;
-        }
-    }
-}
-</code></pre>
-<ul>
-<li>命令行或者IDE右侧Task列表执行：gradlew myTask</li>
-</ul>
-</li>
 </ul>
 ]]></content>
     </entry>
