@@ -2,14 +2,112 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2019-10-04T03:12:56.247Z</updated>
+    <updated>2020-03-03T00:40:27.792Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
     <subtitle>小舟从此逝，江海寄余生！</subtitle>
     <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
     <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, 乱弹软件</rights>
+    <rights>All rights reserved 2020, 乱弹软件</rights>
+    <entry>
+        <title type="html"><![CDATA[《Dart编程语言》读书笔记]]></title>
+        <id>https://jinaiyuanbaojie.github.io//post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji</id>
+        <link href="https://jinaiyuanbaojie.github.io//post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji">
+        </link>
+        <updated>2020-03-03T00:38:27.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>Dart是由谷歌出品的，旨在取代JS的运行与浏览器的小众语言</p>
+</li>
+<li>
+<p>Flutter和飞鲨系统的出现，推进了Dart的发展</p>
+</li>
+<li>
+<p>Dart语法即像Java又类似于javascript。这与语言的设计思路有关，作者希望开发可以快速上手</p>
+</li>
+<li>
+<p>Dart的一切都是对象，甚至于函数都是，可以类比js</p>
+<pre><code class="language-dart">library mymoudle;
+
+import 'dart:math';
+
+class Point /* extends Object */ {
+  var rho, theta;
+  
+  Point(this.rho, this.theta);
+  Point(a,b) {
+    rho = sqrt(a*a + b*b);
+    theta = atan(a/b);
+  }
+  
+  get x =&gt; rho * cos(theta);
+  set x(newX) {
+    rho = sqrt(newX*newX + y*y);
+    theta = acos(newX/rho);
+  }
+  
+  scale(factor) =&gt; new Point(rho*factor, theta);
+  operator + (p) =&gt; new Point(x + p.x, y + p.y);
+  
+  static distance(p1, p2) {
+    return 1;
+  }
+}
+</code></pre>
+</li>
+<li>
+<p>Dart可以编译成机器码、字节码、js代码，类似于kotlin</p>
+</li>
+<li>
+<p>Dart的一大特色就是<strong>可选类型</strong>，可以与TypeScript做类比。本质上它是动态类型语言，但是又对静态类型做了支持。类型问题不会导致编译失败，IDE只会给出提示，运行时检查失败。这是一种折中设计，个人认为很高明</p>
+<pre><code class="language-dart">var number = 10;
+var str = &quot;name&quot;;
+// the complier just gives the warnig.
+print(str + number);
+</code></pre>
+</li>
+<li>
+<p>Dart的数字类型系统像是Java的BigInteger，没有长度限制（<code>编译为js是一个特例</code>）</p>
+</li>
+<li>
+<p>Dart以模块为基本单元，类似Swift。核心库被隐含的导入。</p>
+<pre><code class="language-dart">library mymoudle;
+
+import 'dart:math';
+</code></pre>
+</li>
+<li>
+<p>单继承，默认继承Object类</p>
+</li>
+<li>
+<p>支持setter getter</p>
+<pre><code class="language-dart">class Demo extends Object {
+	get info =&gt; this.info;
+}
+
+var demo = new Demo();
+print(dem0.info);
+</code></pre>
+</li>
+<li>
+<p>所有变量如实例变量，局部变量，全局变量，在没有初始化时都会被赋值为null。null也是一个对象，是Null类的唯一实例。</p>
+</li>
+<li>
+<p>所有暴漏的字段都不是直接访问的，都是调用编译器生成的getter、setter，类似于Swift</p>
+</li>
+<li>
+<p>通Java一样支持默认的构造函数，也即构造函数可以缺省</p>
+</li>
+<li>
+<p>Dart mixin</p>
+</li>
+<li>
+<p>Dart sync*</p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Redux&Redux-Thunk源码分析题纲]]></title>
         <id>https://jinaiyuanbaojie.github.io//post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang</id>
@@ -1107,56 +1205,6 @@ public protocol Disposable {
 指定 <code>let subscription = Observable.subscribe(self)</code> 语句的执行线程。</li>
 <li>ObserveOn<br>
 指定<code>Observer.on(event)</code>方法的执行线程</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Android HotFix]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/android-hotfix</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/android-hotfix">
-        </link>
-        <updated>2018-07-12T16:24:30.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="热修复流派">热修复流派</h1>
-<ul>
-<li>Native: 利用JNI改变调用方法的入口</li>
-<li>Java：多dex打包，补丁dex插入前面
-<ul>
-<li>Qzone: 差量dex</li>
-<li>Tinker: 全量dex(dexdiff算法本地合成)</li>
-</ul>
-</li>
-</ul>
-<h1 id="classloader">ClassLoader</h1>
-<ul>
-<li>加载Java代码到虚拟机</li>
-<li>双亲委派模式找出Java类：先托管给父类查找，如果父类查找不到再自己查找，如此递归。</li>
-<li>Android平台下提供特定的<code>DexClassLoader</code>,会按顺序在dex数组中查找类，如果找到会忽略后面的相同类。</li>
-</ul>
-<h1 id="android编译方式">Android编译方式</h1>
-<ul>
-<li>JIT 及时编译：安装快，运行时速度会变慢</li>
-<li>AOT Ahead of time：安装包变大，安装时间变长，运行速度变快</li>
-<li>混合编译：上述方式的综合</li>
-</ul>
-<h1 id="android虚拟机发展">Android虚拟机发展</h1>
-<ul>
-<li>Dalvik：～Android4.0</li>
-<li>ART： Android5.0～</li>
-<li>ART beta: Android4.0</li>
-<li>ART: Android Run Time代替Dalvik的新虚拟机</li>
-</ul>
-<h1 id="编译方式与版本对应关系">编译方式与版本对应关系</h1>
-<ul>
-<li>JIT：Dalvik虚拟机 ～Android4.0</li>
-<li>AOT：ART虚拟机 Android5.0～Android6.0</li>
-<li>混合编译：Android7.0～</li>
-</ul>
-<h1 id="插桩class_ispreverifed">插桩CLASS_ISPREVERIFED</h1>
-<ul>
-<li>优化dex -&gt; odex,为了提升加载速度</li>
-<li>满足条件的类会被打桩<code>CLASS_ISPREVERIFED</code>标记，不再引入其他dex文件的代码</li>
-<li>被打桩的类引用热修复的类时会报错</li>
-<li>打桩是为了优化Java代码的装载速度，当A类被标记，引用的B类不在原理的dex文件而在补丁dex文件中时，会报错</li>
 </ul>
 ]]></content>
     </entry>
