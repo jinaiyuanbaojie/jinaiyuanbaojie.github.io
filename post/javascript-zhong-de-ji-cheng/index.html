@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>JavaScript中的继承 | 乱弹软件</title>
-<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1592811739458">
+<link rel="shortcut icon" href="https://jinaiyuanbaojie.github.io//favicon.ico?v=1592812280299">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinaiyuanbaojie.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://jinaiyuanbaojie.github.io/">
-  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1592811739458" alt="">
+  <img class="avatar" src="https://jinaiyuanbaojie.github.io//images/avatar.png?v=1592812280299" alt="">
   </a>
   <h1 class="site-title">
     乱弹软件
@@ -171,14 +171,16 @@
 <li><code>__proto__</code>(<strong>原型链</strong>):任何对象都拥有<code>__proto__</code>这个字段，用来在运行时查找调用的<code>属性</code>、<code>方法</code>,<code>__proto__</code>也指向某个对象，以此构成查找链。</li>
 <li>通过函数创建的对象的<code>__proto__</code>字段，自动指向函数的原型对象</li>
 </ul>
-<pre><code class="language-js">function Foo(){};
-var foo = new Foo(); //只有函数才能使用new关键字
-foo.__proto__ == Foo.prototype
+</li>
+</ul>
+<pre><code class="language-js">    function Foo(){};
+    var foo = new Foo(); //只有函数才能使用new关键字
+    foo.__proto__ == Foo.prototype
 </code></pre>
 <blockquote>
 <p>tips:<code>JavaScript</code>的世界一切都是对象</p>
 </blockquote>
-</li>
+<ul>
 <li>代码</li>
 </ul>
 <pre><code class="language-js">function Base(){
