@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2020-03-03T00:40:27.792Z</updated>
+    <updated>2020-06-22T07:31:33.627Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
-    <link rel="self" href="https://jinaiyuanbaojie.github.io//atom.xml"/>
+    <link rel="self" href="https://jinaiyuanbaojie.github.io/atom.xml"/>
     <subtitle>小舟从此逝，江海寄余生！</subtitle>
-    <logo>https://jinaiyuanbaojie.github.io//images/avatar.png</logo>
-    <icon>https://jinaiyuanbaojie.github.io//favicon.ico</icon>
+    <logo>https://jinaiyuanbaojie.github.io/images/avatar.png</logo>
+    <icon>https://jinaiyuanbaojie.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 乱弹软件</rights>
     <entry>
         <title type="html"><![CDATA[《Dart编程语言》读书笔记]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji">
+        <id>https://jinaiyuanbaojie.github.io/post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/lesslessdart-bian-cheng-yu-yan-greatergreater-du-shu-bi-ji/">
         </link>
         <updated>2020-03-03T00:38:27.000Z</updated>
         <content type="html"><![CDATA[<ol>
@@ -110,8 +110,8 @@ print(dem0.info);
     </entry>
     <entry>
         <title type="html"><![CDATA[Redux&Redux-Thunk源码分析题纲]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang">
+        <id>https://jinaiyuanbaojie.github.io/post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/reduxandredux-thunk-yuan-ma-fen-xi-ti-gang/">
         </link>
         <updated>2019-06-29T15:22:14.000Z</updated>
         <content type="html"><![CDATA[<h1 id="reduxredux-thunk源码分析">Redux&amp;Redux-Thunk源码分析</h1>
@@ -141,7 +141,7 @@ print(dem0.info);
 <li>Redux简洁优雅，<strong>精品</strong></li>
 </ul>
 <h2 id="redux图例">Redux图例</h2>
-<p><img src="https://smt-repo.s3.cn-north-1.amazonaws.com.cn/redirectinbox/redux.png" alt="image"></p>
+<figure data-type="image" tabindex="1"><img src="https://smt-repo.s3.cn-north-1.amazonaws.com.cn/redirectinbox/redux.png" alt="image" loading="lazy"></figure>
 <h2 id="es6的预备知识">es6的预备知识</h2>
 <ul>
 <li>箭头函数(闭包)</li>
@@ -303,8 +303,8 @@ Object.keys(person);
     </entry>
     <entry>
         <title type="html"><![CDATA[NSHisperOfSwift]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/nshisperofswift</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/nshisperofswift">
+        <id>https://jinaiyuanbaojie.github.io/post/nshisperofswift/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/nshisperofswift/">
         </link>
         <updated>2019-06-29T15:19:45.000Z</updated>
         <content type="html"><![CDATA[<h2 id="optional">Optional</h2>
@@ -314,7 +314,7 @@ Object.keys(person);
 <h2 id="swift-vtable">Swift VTable</h2>
 <p>按照声明的方法顺序都存在虚函数表中。不论是否被Override.</p>
 <h2 id="swift-属性访问">Swift 属性访问</h2>
-<p>会额外调用swift_accessBegin和swift_accessEnd.
+<p>会额外调用swift_accessBegin和swift_accessEnd.<br>
 didSet和willSet等会被额外编译成函数。插入到属性访问的汇编代码中。</p>
 <blockquote>
 <p>推测是为了兼容OC中的atomic关键字</p>
@@ -334,15 +334,15 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
     </entry>
     <entry>
         <title type="html"><![CDATA[计算机基础总结]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/ji-suan-ji-ji-chu-zong-jie">
+        <id>https://jinaiyuanbaojie.github.io/post/ji-suan-ji-ji-chu-zong-jie/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/ji-suan-ji-ji-chu-zong-jie/">
         </link>
         <updated>2019-06-21T08:18:36.000Z</updated>
         <content type="html"><![CDATA[<h1 id="free-talk-about-programming">Free talk about Programming</h1>
 <p>meetting room 810</p>
 <h2 id="什么是计算机">什么是计算机</h2>
 <ul>
-<li>计算==机器==
+<li>计算<mark>机器</mark>
 <ul>
 <li>古人的结绳法</li>
 <li>算盘
@@ -657,14 +657,14 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
     </entry>
     <entry>
         <title type="html"><![CDATA[iOS CI构建问题：Jekins&CocoaPods]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/ios-ci-gou-jian-wen-ti-jekinsandcocoapods</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/ios-ci-gou-jian-wen-ti-jekinsandcocoapods">
+        <id>https://jinaiyuanbaojie.github.io/post/ios-ci-gou-jian-wen-ti-jekinsandcocoapods/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/ios-ci-gou-jian-wen-ti-jekinsandcocoapods/">
         </link>
         <updated>2019-06-07T16:40:51.000Z</updated>
         <content type="html"><![CDATA[<h2 id="问题">问题：</h2>
-<p>今天配合搭建新工程的CI构建环境。
-构建脚本执行到<code>xcodebuild clean</code>时，<code>jekins</code>卡住日志一直loading卡住。
-构建脚本与之前工程的完全一致。
+<p>今天配合搭建新工程的CI构建环境。<br>
+构建脚本执行到<code>xcodebuild clean</code>时，<code>jekins</code>卡住日志一直loading卡住。<br>
+构建脚本与之前工程的完全一致。<br>
 旧工程可以正常构建。</p>
 <h2 id="原因">原因：</h2>
 <p>新工程使用了<code>CocoaPods</code>管理第三方代码。</p>
@@ -678,8 +678,8 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
     </entry>
     <entry>
         <title type="html"><![CDATA[MyNSHipster]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/mynshipster</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/mynshipster">
+        <id>https://jinaiyuanbaojie.github.io/post/mynshipster/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/mynshipster/">
         </link>
         <updated>2018-09-27T16:34:05.000Z</updated>
         <content type="html"><![CDATA[<h1 id="any-anyobject-anyclass">Any AnyObject AnyClass</h1>
@@ -713,7 +713,7 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
 </blockquote>
 <h1 id="id-instancetype">id instancetype</h1>
 <blockquote>
-<p>(id) init vs (instancetype) init
+<p>(id) init vs (instancetype) init<br>
 instancetype返回当前类型，辅助编译器提供更多信息</p>
 </blockquote>
 <h1 id="lifecycle-of-uiviewcontroller">Lifecycle of UIViewController</h1>
@@ -757,7 +757,7 @@ dealloc
 <a href="https://onevcat.com/2013/12/code-vs-xib-vs-storyboard/">xib vs storyboard vs code</a></p>
 </blockquote>
 <h1 id="objc-super-vs-self">ObjC super VS self</h1>
-<p><code>[super method]</code>和<code>[self method]</code>对象的接受者都是<code>self</code>.
+<p><code>[super method]</code>和<code>[self method]</code>对象的接受者都是<code>self</code>.<br>
 只是<code>super</code>告诉runtime从<code>self</code>的基类开始查找方法</p>
 <h1 id="objc-20-内存布局">ObjC 2.0 内存布局</h1>
 <ul>
@@ -818,8 +818,8 @@ dealloc
     </entry>
     <entry>
         <title type="html"><![CDATA[SourceKitten获取语法树]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/sourcekitten-huo-qu-yu-fa-shu</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/sourcekitten-huo-qu-yu-fa-shu">
+        <id>https://jinaiyuanbaojie.github.io/post/sourcekitten-huo-qu-yu-fa-shu/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/sourcekitten-huo-qu-yu-fa-shu/">
         </link>
         <updated>2018-09-26T16:37:23.000Z</updated>
         <content type="html"><![CDATA[<h1 id="sourcekitten获取语法树">SourceKitten获取语法树</h1>
@@ -865,15 +865,15 @@ output:
     </entry>
     <entry>
         <title type="html"><![CDATA[flatMap]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/flatmap</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/flatmap">
+        <id>https://jinaiyuanbaojie.github.io/post/flatmap/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/flatmap/">
         </link>
         <updated>2018-08-20T16:39:34.000Z</updated>
         <content type="html"><![CDATA[<h1 id="flatmap">flatMap</h1>
 <p>函数式编程中的<code>map</code> <code>reduce</code> <code>filter</code>算子很好理解。<br>
 但是<code>flatMap</code>一直让我很困惑。<br>
 今天阅读《Swift进阶》时，书中的例子让我恍然大悟。<br>
-记录如下：
+记录如下：<br>
 我想提取单个文本文件中的URL，有如下函数原型</p>
 <pre><code class="language-swift">func extractLinks(from file: String) -&gt; [URL]
 </code></pre>
@@ -896,8 +896,8 @@ let nestedLinks = fileArray.map(extractLinks)
     </entry>
     <entry>
         <title type="html"><![CDATA[温水煮青蛙]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/wen-shui-zhu-qing-wa</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/wen-shui-zhu-qing-wa">
+        <id>https://jinaiyuanbaojie.github.io/post/wen-shui-zhu-qing-wa/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/wen-shui-zhu-qing-wa/">
         </link>
         <updated>2018-08-15T16:23:21.000Z</updated>
         <content type="html"><![CDATA[<h1 id="我自己要注意的事项">我自己要注意的事项</h1>
@@ -921,8 +921,8 @@ let nestedLinks = fileArray.map(extractLinks)
     </entry>
     <entry>
         <title type="html"><![CDATA[RxSwift散乱整理]]></title>
-        <id>https://jinaiyuanbaojie.github.io//post/rxswift-san-luan-zheng-li</id>
-        <link href="https://jinaiyuanbaojie.github.io//post/rxswift-san-luan-zheng-li">
+        <id>https://jinaiyuanbaojie.github.io/post/rxswift-san-luan-zheng-li/</id>
+        <link href="https://jinaiyuanbaojie.github.io/post/rxswift-san-luan-zheng-li/">
         </link>
         <updated>2018-07-12T16:43:11.000Z</updated>
         <content type="html"><![CDATA[<h3 id="rxswift散乱整理">RxSwift散乱整理</h3>
@@ -952,7 +952,7 @@ Sequences分为有限序列和无限序列。<br>
 Subjects act as both an observable and an observer.<br>
 Stream Sequence Signal Observable....<br>
 Observer,subscribe,next,complete,error.Sheduler.Subject,</p>
-<p>==下面的类或者协议还有各种扩展==</p>
+<p><mark>下面的类或者协议还有各种扩展</mark></p>
 <h3 id="observable">Observable</h3>
 <pre><code>public class Observable&lt;Element&gt; : ObservableType {
     /// ObservableType是protocol，实现类需要指定E的具体类型
