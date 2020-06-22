@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2020-06-22T07:55:18.988Z</updated>
+    <updated>2020-06-22T07:59:35.114Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io/atom.xml"/>
@@ -347,7 +347,7 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
         <link href="https://jinaiyuanbaojie.github.io/post/ji-suan-ji-ji-chu-zong-jie/">
         </link>
         <updated>2019-06-21T08:18:36.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="free-talk-about-programming">Free talk about Programming</h1>
+        <content type="html"><![CDATA[<h1 id="free-talking-about-programming">Free talking about Programming</h1>
 <p>meetting room 810</p>
 <h2 id="什么是计算机">什么是计算机</h2>
 <ul>
@@ -466,7 +466,6 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
 <ul>
 <li>内功，多线程场景考虑，缓存的使用等等</li>
 <li>大智若愚，懂得取舍，不浮夸</li>
-<li></li>
 </ul>
 </li>
 </ul>
@@ -660,7 +659,7 @@ didSet和willSet等会被额外编译成函数。插入到属性访问的汇编�
 </li>
 </ul>
 <blockquote>
-<p>语言也是营销，你会的不代表好，只是你恰巧会</p>
+<p>语言也需要营销，你会的不代表好，只是你恰巧会。Java大量借鉴了smalltalk，由于缺少宣传smalltalk已经泯然众人。</p>
 </blockquote>
 ]]></content>
     </entry>
