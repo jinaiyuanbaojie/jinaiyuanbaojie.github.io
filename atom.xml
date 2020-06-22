@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinaiyuanbaojie.github.io/</id>
     <title>乱弹软件</title>
-    <updated>2020-06-22T07:31:33.627Z</updated>
+    <updated>2020-06-22T07:38:07.134Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinaiyuanbaojie.github.io/"/>
     <link rel="self" href="https://jinaiyuanbaojie.github.io/atom.xml"/>
@@ -18,86 +18,95 @@
         <updated>2020-03-03T00:38:27.000Z</updated>
         <content type="html"><![CDATA[<ol>
 <li>
-<p>Dart是由谷歌出品的，旨在取代JS的运行与浏览器的小众语言</p>
+<p>Dart是由谷歌出品的，开始旨在取代javascript，能够运行于浏览器的小众语言。然而TypeScript已经占领了这一领域。</p>
 </li>
 <li>
-<p>Flutter和飞鲨系统的出现，推进了Dart的发展</p>
+<p>Flutter和飞鲨系统的出现，推进了Dart的发展。</p>
 </li>
 <li>
-<p>Dart语法即像Java又类似于javascript。这与语言的设计思路有关，作者希望开发可以快速上手</p>
+<p>Dart语法即像Java又类似于javascript。这与语言的设计思路有关，作者希望开发者可以快速上手。</p>
 </li>
 <li>
-<p>Dart的一切都是对象，甚至于函数都是，可以类比js</p>
-<pre><code class="language-dart">library mymoudle;
+<p>Dart的一切都是对象，甚至函数都是对象，可以类比javascript。</p>
+</li>
+</ol>
+<pre><code>   library mymoudle;
+   import 'dart:math';
+   
+   class Point /* extends Object */ {
+     var rho, theta;
+     
+     Point(this.rho, this.theta);
+     Point(a,b) {
+       rho = sqrt(a*a + b*b);
+       theta = atan(a/b);
+     }
+     
+     get x =&gt; rho * cos(theta);
+     set x(newX) {
+       rho = sqrt(newX*newX + y*y);
+       theta = acos(newX/rho);
+     }
+     
+     scale(factor) =&gt; new Point(rho*factor, theta);
+     operator + (p) =&gt; new Point(x + p.x, y + p.y);
+     
+     static distance(p1, p2) {
+       return 1;
+     }
+   }
 
-import 'dart:math';
+</code></pre>
+<ol start="5">
+<li>
+<p>Dart可以编译成机器码、字节码、js代码，类似于Kotlin。</p>
+</li>
+<li>
+<p>Dart的一大特色就是<strong>可选类型</strong>，可以与TypeScript做类比。本质上它是动态类型语言，但是又对静态类型做了支持。类型问题不会导致编译失败，IDE只会给出提示，运行时检查失败。这是一种折中设计，个人认为很高明。</p>
+</li>
+</ol>
+<pre><code>   var number = 10;
+   var str = &quot;name&quot;;
+   // the complier just gives the warnig.
+   print(str + number);
 
-class Point /* extends Object */ {
-  var rho, theta;
-  
-  Point(this.rho, this.theta);
-  Point(a,b) {
-    rho = sqrt(a*a + b*b);
-    theta = atan(a/b);
-  }
-  
-  get x =&gt; rho * cos(theta);
-  set x(newX) {
-    rho = sqrt(newX*newX + y*y);
-    theta = acos(newX/rho);
-  }
-  
-  scale(factor) =&gt; new Point(rho*factor, theta);
-  operator + (p) =&gt; new Point(x + p.x, y + p.y);
-  
-  static distance(p1, p2) {
-    return 1;
-  }
-}
 </code></pre>
-</li>
+<ol start="7">
 <li>
-<p>Dart可以编译成机器码、字节码、js代码，类似于kotlin</p>
-</li>
-<li>
-<p>Dart的一大特色就是<strong>可选类型</strong>，可以与TypeScript做类比。本质上它是动态类型语言，但是又对静态类型做了支持。类型问题不会导致编译失败，IDE只会给出提示，运行时检查失败。这是一种折中设计，个人认为很高明</p>
-<pre><code class="language-dart">var number = 10;
-var str = &quot;name&quot;;
-// the complier just gives the warnig.
-print(str + number);
-</code></pre>
-</li>
-<li>
-<p>Dart的数字类型系统像是Java的BigInteger，没有长度限制（<code>编译为js是一个特例</code>）</p>
+<p>Dart的数字类型系统像是Java的BigInteger，没有长度限制（<code>编译为js是一个特例</code>）。</p>
 </li>
 <li>
 <p>Dart以模块为基本单元，类似Swift。核心库被隐含的导入。</p>
-<pre><code class="language-dart">library mymoudle;
-
-import 'dart:math';
-</code></pre>
 </li>
+</ol>
+<pre><code>   library mymoudle;
+   import 'dart:math';
+</code></pre>
+<ol start="9">
 <li>
-<p>单继承，默认继承Object类</p>
+<p>单继承，默认继承Object类。</p>
 </li>
 <li>
 <p>支持setter getter</p>
-<pre><code class="language-dart">class Demo extends Object {
-	get info =&gt; this.info;
-}
-
-var demo = new Demo();
-print(dem0.info);
-</code></pre>
 </li>
+</ol>
+<pre><code>    class Demo extends Object {
+    	get info =&gt; this.info;
+    }
+    
+    var demo = new Demo();
+    print(demo.info);
+
+</code></pre>
+<ol start="11">
 <li>
 <p>所有变量如实例变量，局部变量，全局变量，在没有初始化时都会被赋值为null。null也是一个对象，是Null类的唯一实例。</p>
 </li>
 <li>
-<p>所有暴漏的字段都不是直接访问的，都是调用编译器生成的getter、setter，类似于Swift</p>
+<p>所有暴漏的字段都不是直接访问的，都是调用编译器生成的getter、setter，类似于Swift。</p>
 </li>
 <li>
-<p>通Java一样支持默认的构造函数，也即构造函数可以缺省</p>
+<p>通Java一样支持默认的构造函数，也即构造函数可以缺省。</p>
 </li>
 <li>
 <p>Dart mixin</p>
